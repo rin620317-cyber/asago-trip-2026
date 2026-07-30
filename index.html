@@ -110,8 +110,9 @@ section{margin-top:38px;scroll-margin-top:70px}
 .tl{position:relative;padding-left:26px}
 .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;
   background:linear-gradient(180deg,var(--sun),var(--coral),var(--violet),var(--teal));opacity:.5;border-radius:2px}
-.ev{position:relative;margin-bottom:12px;opacity:0;transform:translateY(14px);transition:.55s cubic-bezier(.2,.7,.3,1)}
-.ev.in{opacity:1;transform:none}
+/* 既定は「見える」。JSが動く環境でだけ .pre を付けてフェードインさせる（JS不発でも必ず表示） */
+.ev{position:relative;margin-bottom:12px;transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1)}
+.ev.pre{opacity:0;transform:translateY(14px)}
 .ev::before{content:"";position:absolute;left:-23px;top:16px;width:12px;height:12px;border-radius:50%;
   background:var(--sun);box-shadow:0 0 0 4px rgba(255,179,71,.16)}
 .ev.teal::before{background:var(--teal);box-shadow:0 0 0 4px rgba(63,201,192,.16)}
@@ -198,7 +199,7 @@ footer a{color:var(--ink-dim)}
   input.money{width:84px}
 }
 @media (prefers-reduced-motion:reduce){
-  .ev{opacity:1;transform:none;transition:none}
+  .ev,.ev.pre{opacity:1;transform:none;transition:none}
   .star{animation:none}
 }
 </style>
@@ -676,17 +677,22 @@ footer a{color:var(--ink-dim)}
   }
   tick(); setInterval(tick,1000);
 
-  /* ---- reveal timeline ---- */
-  var evs = document.querySelectorAll('.ev');
-  if ('IntersectionObserver' in window){
+  /* ---- reveal timeline (progressive enhancement) ----
+     既定CSSは表示状態。IOが使える時だけ .pre を付けて隠し、視界に入ったら外す。
+     何らかの理由でIOが発火しない環境でも、保険タイマーで必ず表示される。 */
+  var evs = Array.prototype.slice.call(document.querySelectorAll('.ev'));
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function showAll(){ evs.forEach(function(el){ el.classList.remove('pre'); }); }
+  if ('IntersectionObserver' in window && !reduce){
+    evs.forEach(function(el){ el.classList.add('pre'); });
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+        if (en.isIntersecting){ en.target.classList.remove('pre'); io.unobserve(en.target); }
       });
-    },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    },{threshold:0.08, rootMargin:'0px 0px -30px 0px'});
     evs.forEach(function(el){ io.observe(el); });
-  } else {
-    evs.forEach(function(el){ el.classList.add('in'); });
+    setTimeout(function(){ io.disconnect(); showAll(); }, 2500);   // 保険
+    window.addEventListener('pagehide', showAll);
   }
 
   /* ---- budget ---- */
