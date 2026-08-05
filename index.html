@@ -568,7 +568,7 @@ footer a{color:var(--ink-dim)}
 
       <div class="total">
         <div><div class="lab">総額の目安</div><div class="big" id="grand">¥0</div></div>
-        <div class="per">1人あたり（9名）<br><b id="per" style="font-size:16px;color:var(--ink)">¥0</b><br>大人6名で頭割り <span id="peradult">¥0</span></div>
+        <div class="per">1人あたり（8名・幼児除く）<br><b id="per" style="font-size:16px;color:var(--ink)">¥0</b><br>大人6名で頭割り <span id="peradult">¥0</span></div>
       </div>
 
       <div class="cashbox">
@@ -839,7 +839,7 @@ footer a{color:var(--ink-dim)}
       if (i.dataset.cash === '1') cash += v;
     });
     document.getElementById('grand').textContent = yen(total);
-    document.getElementById('per').textContent = yen(total/9);
+    document.getElementById('per').textContent = yen(total/8);   // 幼児(2歳)は割り勘から除外
     document.getElementById('peradult').textContent = yen(total/6);
     document.getElementById('cash').textContent = yen(cash);
     try { localStorage.setItem(KEY, JSON.stringify(inputs.map(function(i){return i.value;}))); } catch(e){}
