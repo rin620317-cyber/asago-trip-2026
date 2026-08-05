@@ -47,7 +47,7 @@ body{
 
 /* ---------- stars ---------- */
 #stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.65}
-.star{position:absolute;background:#fff;border-radius:50%;animation:tw 4s ease-in-out infinite}
+#stars .star{position:absolute;background:#fff;border-radius:50%;animation:tw 4s ease-in-out infinite}
 @keyframes tw{0%,100%{opacity:.15;transform:scale(.8)}50%{opacity:.95;transform:scale(1.15)}}
 
 /* ---------- hero ---------- */
@@ -176,10 +176,10 @@ input.money:focus{outline:2px solid rgba(255,179,71,.5);outline-offset:1px}
 .have-row:first-child{padding-top:0}
 .have-h{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:var(--green);padding-top:3px}
 .have-h .hi{font-size:17px}
-.have-items{display:flex;flex-wrap:wrap;gap:6px}
-.pill{font-size:12px;line-height:1.5;padding:4px 10px;border-radius:8px;background:rgba(95,224,139,.10);
-  border:1px solid rgba(95,224,139,.26);color:#dcf5e5}
-.pill.star{background:rgba(255,209,102,.13);border-color:rgba(255,209,102,.38);color:#ffe6a8;font-weight:800}
+.have-items{display:flex;flex-wrap:wrap;gap:7px}
+.pill{flex:0 0 auto;font-size:12.5px;line-height:1.5;padding:5px 11px;border-radius:9px;
+  background:rgba(95,224,139,.10);border:1px solid rgba(95,224,139,.26);color:#dcf5e5}
+.pill.key{background:rgba(255,209,102,.14);border-color:rgba(255,209,102,.42);color:#ffe6a8;font-weight:800}
 @media (max-width:540px){
   .have-row{grid-template-columns:1fr;gap:7px;padding:14px 0}
   .have-h{padding-top:0}
@@ -216,7 +216,7 @@ footer a{color:var(--ink-dim)}
 }
 @media (prefers-reduced-motion:reduce){
   .ev,.ev.pre{opacity:1;transform:none;transition:none}
-  .star{animation:none}
+  #stars .star{animation:none}
 }
 </style>
 </head>
@@ -660,7 +660,7 @@ footer a{color:var(--ink-dim)}
         <div class="have-row">
           <div class="have-h"><span class="hi">🍳</span>キッチン</div>
           <div class="have-items">
-            <span class="pill star">食器・カトラリー</span><span class="pill star">基本の調味料</span>
+            <span class="pill key">食器・カトラリー</span><span class="pill key">基本の調味料</span>
             <span class="pill">鍋・包丁など調理器具一式</span><span class="pill">IHコンロ</span><span class="pill">冷蔵庫</span>
             <span class="pill">電子レンジ</span><span class="pill">炊飯器</span><span class="pill">トースター</span>
             <span class="pill">ポット</span><span class="pill">食洗機</span>
@@ -670,7 +670,7 @@ footer a{color:var(--ink-dim)}
         <div class="have-row">
           <div class="have-h"><span class="hi">🔥</span>BBQ</div>
           <div class="have-items">
-            <span class="pill star">火起こし・炭の片付けは宿が代行</span>
+            <span class="pill key">火起こし・炭の片付けは宿が代行</span>
             <span class="pill">BBQコンロ・網・用品一式</span><span class="pill">ランタン</span>
             <span class="pill">ダッチオーブン</span><span class="pill">燻製器（チップ付）</span>
             <span class="pill">軍手 不要</span><span class="pill">着火剤 不要</span><span class="pill">チャッカマン 不要</span>
@@ -687,7 +687,7 @@ footer a{color:var(--ink-dim)}
         <div class="have-row">
           <div class="have-h"><span class="hi">🔌</span>家電・快適</div>
           <div class="have-items">
-            <span class="pill star">エアコン（個別空調）</span><span class="pill star">洗濯機・乾燥機 無料</span>
+            <span class="pill key">エアコン（個別空調）</span><span class="pill key">洗濯機・乾燥機 無料</span>
             <span class="pill">Wi-Fi 無料</span><span class="pill">テレビ・DVD</span>
             <span class="pill">アイロン</span><span class="pill">加湿器</span>
           </div>
@@ -703,7 +703,7 @@ footer a{color:var(--ink-dim)}
         <div class="have-row">
           <div class="have-h"><span class="hi">🅿️</span>駐車場</div>
           <div class="have-items">
-            <span class="pill star">無料・10台まで予約不要</span><span class="pill">車2台は問題なし</span>
+            <span class="pill key">無料・10台まで予約不要</span><span class="pill">車2台は問題なし</span>
           </div>
         </div>
       </div>
