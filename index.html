@@ -534,16 +534,15 @@ footer a{color:var(--ink-dim)}
       <div class="progress"><i id="pbar"></i></div>
       <div style="font-size:12px;color:var(--ink-faint);margin-bottom:12px"><span id="pcount">0</span> / <span id="ptotal">0</span> 完了</div>
 
-      <div class="clhead">🔥 BBQ・宿</div>
+      <div class="clhead">🔥 食材まわり（調理器具・食器・調味料は宿にあります）</div>
       <div class="cl">
         <label><input type="checkbox"><span>肉（9名分・クーラーボックス）</span></label>
-        <label><input type="checkbox"><span>保冷剤・氷</span></label>
-        <label><input type="checkbox"><span>調味料（塩こしょう・焼肉のたれ・オリーブオイル）</span></label>
+        <label><input type="checkbox"><span><b>氷</b>（製氷機なし・多めに）</span></label>
+        <label><input type="checkbox"><span>保冷剤</span></label>
         <label><input type="checkbox"><span>飲み物（大人用・子ども用）</span></label>
-        <label><input type="checkbox"><span>紙皿・紙コップ・割り箸・ラップ</span></label>
-        <label><input type="checkbox"><span>ゴミ袋（多め）</span></label>
-        <label><input type="checkbox"><span>軍手・トング・チャッカマン</span></label>
-        <label><input type="checkbox"><span>ウェットティッシュ・キッチンペーパー</span></label>
+        <label><input type="checkbox"><span>サラダ用の生野菜（畑の収穫は焼き物向き）</span></label>
+        <label><input type="checkbox"><span>こだわりの調味料（焼肉のたれ等）※基本調味料は宿にあり</span></label>
+        <label><input type="checkbox"><span>ゴミ袋（念のため）</span></label>
       </div>
 
       <div class="clhead">💦 川遊び</div>
@@ -559,10 +558,10 @@ footer a{color:var(--ink-dim)}
 
       <div class="clhead">👶 子ども・2歳児</div>
       <div class="cl">
-        <label><input type="checkbox"><span>ベビー用寝具（幼児は布団なし予約）</span></label>
+        <label><input type="checkbox"><span>ベビー用寝具（幼児は布団なし予約／宿に要確認）</span></label>
         <label><input type="checkbox"><span>おむつ・おしりふき（多め）</span></label>
         <label><input type="checkbox"><span>着替え（1日3セット想定）</span></label>
-        <label><input type="checkbox"><span>子ども用食器・エプロン</span></label>
+        <label><input type="checkbox"><span>食事用エプロン ※食器は宿にあり</span></label>
         <label><input type="checkbox"><span>お気に入りのおもちゃ・絵本</span></label>
         <label><input type="checkbox"><span>車内用のおやつ・DVD/タブレット</span></label>
       </div>
@@ -574,7 +573,7 @@ footer a{color:var(--ink-dim)}
         <label><input type="checkbox"><span>虫よけ・かゆみ止め（畑と川で必須）</span></label>
         <label><input type="checkbox"><span>羽織り物（生野銀山13℃＋夜の冷え）</span></label>
         <label><input type="checkbox"><span>経口補水液・塩分タブレット</span></label>
-        <label><input type="checkbox"><span>常備薬・絆創膏・体温計</span></label>
+        <label><input type="checkbox"><span><b>両親の常備薬</b>・絆創膏・体温計</span></label>
         <label><input type="checkbox"><span>保険証・母子手帳（コピー可）</span></label>
       </div>
 
@@ -586,10 +585,27 @@ footer a{color:var(--ink-dim)}
         <label><input type="checkbox"><span>モバイルバッテリー・充電ケーブル</span></label>
         <label><input type="checkbox"><span>カメラ／三脚（星空・収穫体験）</span></label>
         <label><input type="checkbox"><span>酔い止め（山道あり）</span></label>
-        <label><input type="checkbox"><span>洗面用具・タオル</span></label>
+        <label><input type="checkbox"><span>パジャマ・寝間着（有無の情報が割れているため）</span></label>
+        <label><input type="checkbox"><span>歯ブラシ（一応。ハミガキセットありの記載も）</span></label>
       </div>
 
       <div style="margin-top:14px"><button class="btn" id="clreset">↺ チェックを全部外す</button></div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <div style="font-weight:900;margin-bottom:4px;color:var(--green)">🚫 持っていかなくていいもの（宿にあります）</div>
+      <div style="font-size:12px;color:var(--ink-faint);margin-bottom:10px">Googleの口コミ・じゃらん・楽天の設備欄から確認。「食材さえ持って行けばあとの備品は何も要らない」という声が複数あります。</div>
+      <div class="grid2">
+        <div class="stat"><div class="k">キッチン</div><div class="v" style="font-size:13px;font-weight:600;line-height:1.7">IHコンロ／冷蔵庫／電子レンジ／炊飯器／トースター／ポット／食洗機／鍋・包丁など調理器具一式／<b>食器・カトラリー</b>／<b>基本の調味料</b>／ラップ・ホイル・キッチンペーパー</div></div>
+        <div class="stat"><div class="k">BBQ</div><div class="v" style="font-size:13px;font-weight:600;line-height:1.7">BBQコンロ・網・用品一式／ランタン／ダッチオーブン／燻製器（スモークチップ付）／<b>火起こしと炭の後片付けは宿がやってくれます</b>＝軍手・着火剤・チャッカマン不要</div></div>
+        <div class="stat"><div class="k">水まわり・寝具</div><div class="v" style="font-size:13px;font-weight:600;line-height:1.7">タオル・バスタオル／シャンプー・リンス・ボディソープ・石鹸／ドライヤー／寝具一式／スリッパ／洗浄機付トイレ</div></div>
+        <div class="stat"><div class="k">家電・快適</div><div class="v" style="font-size:13px;font-weight:600;line-height:1.7"><b>エアコン（個別空調）</b>／Wi-Fi無料／洗濯機・乾燥機 無料／テレビ・DVD／アイロン／加湿器</div></div>
+        <div class="stat"><div class="k">遊び道具</div><div class="v" style="font-size:13px;font-weight:600;line-height:1.7">プロジェクター（ホームシアター）／天体望遠鏡／Bluetoothスピーカー／ハンモック／自転車2台／そうめん流し台</div></div>
+        <div class="stat"><div class="k">駐車場</div><div class="v" style="font-size:13px;font-weight:600;line-height:1.7">無料・<b>10台まで予約不要</b>。車2台は問題なし</div></div>
+      </div>
+      <div style="margin-top:12px;font-size:12.5px;color:var(--ink-dim);border-left:2px solid rgba(255,255,255,.18);padding:2px 0 2px 10px">
+        <b style="color:var(--gold)">ただし製氷機はありません。</b>口コミで「あれば嬉しいもの」に挙がっているので、真夏の今回は<b>氷を多めに持参</b>してください。
+      </div>
     </div>
   </section>
 
@@ -613,8 +629,10 @@ footer a{color:var(--ink-dim)}
       <span class="h">📞 出発までの宿題</span>
       ① <b>朝食オプションの個数</b>を宿へ返信（8個で確定するか、幼児分をどうするか）／
       ② そらしーどの<b>配達可否</b>の宿からの回答を確認／
-      ③ 8/15に<b>1日目の昼食</b>の営業と席を電話確認／
-      ④ 現金 85,500円を封筒に準備。
+      ③ <b>生ビール・ハイボールのサーバーは事前申し込み制</b>。大人6名なら申し込む価値あり（口コミ情報／料金は要確認）／
+      ④ <b>幼児（2歳）の布団</b>は「布団なし」予約。貸出があるか、持参が必要かを確認／
+      ⑤ 8/15に<b>1日目の昼食</b>の営業と席を電話確認／
+      ⑥ 現金 85,500円を封筒に準備。
     </div>
 
     <ul class="notes">
@@ -624,6 +642,9 @@ footer a{color:var(--ink-dim)}
       <li><b>あさご芸術の森美術館は水曜休。</b>8/17は月曜なので開いていますが、展示替え日にあたっていないか前日に公式で確認を。</li>
       <li><b>竹田城跡は今回あえて外しました。</b>宿から15分と近いものの、山城の郷から徒歩20分・日陰ほぼなしで、真夏の日中に2歳児を連れて行く場所ではありません。行くなら早朝5時台か、雲海の秋に改めて。</li>
       <li><b>2台の連携。</b>出発前にLINEグループを作り、休憩ポイント（加西SA・山東IC）を先に共有しておくと、はぐれても合流できます。</li>
+      <li><b>コンビニが車で数分。</b>忘れ物はほぼ現地で調達できます（口コミ情報）。宿までの道も「別に狭くない」との複数の証言があるので、運転の不安は不要です。</li>
+      <li><b>夜間は鹿や狸が道路に出ます。</b>暗くなってからの移動は速度を落として。到着後は極力運転しない前提で組んでいます。</li>
+      <li><b>囲炉裏は火を扱います。</b>口コミにも「配慮はされているが、火を扱う以上こちらが気をつける必要がある」とあります。2歳児と火の距離だけは、大人の誰か1人が常に見る担当を決めておいてください。</li>
     </ul>
   </section>
 
