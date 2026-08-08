@@ -196,6 +196,12 @@ input.money[readonly]:focus{outline:none}
 #stable tr.warn .who{color:#ffd166}
 #stable td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
 #stable td.tot{font-weight:900;color:var(--ink)}
+#selfpay{margin-top:12px;padding-top:11px;border-top:1px dashed rgba(255,255,255,.18)}
+.self-h{font-size:12.5px;font-weight:800;color:var(--gold);margin-bottom:7px}
+.self-row{display:flex;flex-wrap:wrap;gap:7px}
+.self-row span{font-size:12px;color:var(--ink-dim);background:rgba(255,255,255,.05);
+  border:1px solid var(--line);border-radius:8px;padding:3px 10px}
+.self-row b{color:var(--ink);font-variant-numeric:tabular-nums}
 .cashbox{margin-top:12px;padding:13px 15px;border-radius:14px;background:rgba(95,224,139,.10);border:1px solid rgba(95,224,139,.32)}
 .cashbox .h{font-weight:900;color:var(--green);font-size:13px}
 .btn{display:inline-block;font-size:12px;font-weight:700;color:var(--ink-dim);background:rgba(255,255,255,.06);
@@ -325,8 +331,8 @@ footer a{color:var(--ink-dim)}
           <tr class="grp"><td colspan="2">■ 食費</td></tr>
           <tr><td>BBQ用の肉 2,000g<span class="lock">確定</span><span class="note">牛ハラミ（並）1,000g×750＝7,500／和牛 中落ちカルビ 700g×610＝4,270／和牛ロース（並）300g×770＝2,310<br>マエダ食品（伊丹市千僧3-144-1・072-771-0166）で前日購入。半冷凍にすると保冷剤がわり</span></td><td class="num"><input class="money" data-fixed="1" value="14080"></td></tr>
           <tr><td>飲み物・氷・そうめん・調味料</td><td class="num"><input class="money" value="6000"></td></tr>
-          <tr><td>1日目 昼食 1,200円 × 8名<span class="note">道の駅やぶ・食堂の油そば／パン屋。幼児は取り分け前提で人数に含めず</span></td><td class="num"><input class="money" value="9600"></td></tr>
-          <tr><td>2日目 昼食 1,200円 × 8名<span class="note">道の駅やぶ</span></td><td class="num"><input class="money" value="9600"></td></tr>
+          <tr><td>1日目 昼食 1,200円 × 8名<span class="note">道の駅やぶ・食堂の油そば／パン屋。幼児は取り分け前提で人数に含めず。<b style="color:var(--gold)">当日その場で各自払い</b></span></td><td class="num"><input class="money" data-alloc="self" value="9600"></td></tr>
+          <tr><td>2日目 昼食 1,200円 × 8名<span class="note">道の駅やぶ。<b style="color:var(--gold)">当日その場で各自払い</b></span></td><td class="num"><input class="money" data-alloc="self" value="9600"></td></tr>
           <tr><td>おやつ・SA休憩</td><td class="num"><input class="money" value="3000"></td></tr>
 
           <tr class="grp"><td colspan="2" style="color:var(--ink-faint);font-weight:600">※ お土産・予備費は各自負担のため、この表には含みません</td></tr>
@@ -349,12 +355,13 @@ footer a{color:var(--ink-dim)}
         <div class="split-h">🧾 世帯ごとの精算</div>
         <div class="split-note">
           <b>宿泊まわりは各自の実額</b>（大人10,000／小人8,000／幼児1,500＋朝食1,000、生ビールは大人で頭割り）。<br>
-          <b>それ以外はすべて共通費</b>として、幼児を除く8名で割っています。
+          <b>それ以外は共通費</b>として、幼児を除く8名で割っています。<b>昼食は精算に含めず、当日その場で各自払い</b>です。
         </div>
         <table id="stable">
-          <thead><tr><th>世帯</th><th class="num">宿泊まわり</th><th class="num">共通費</th><th class="num">合計</th></tr></thead>
+          <thead><tr><th>世帯</th><th class="num">宿泊まわり</th><th class="num">共通費</th><th class="num">精算額</th></tr></thead>
           <tbody id="sbody"></tbody>
         </table>
+        <div id="selfpay"></div>
       </div>
 
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
@@ -465,30 +472,38 @@ footer a{color:var(--ink-dim)}
     var body = document.getElementById('sbody');
     if (!body) return;
     var per = function(pool, head){ return head > 0 ? pool / head : 0; };
-    var rows = '', sumStay = 0, sumCommon = 0;
+    var rows = '', sumStay = 0, sumCommon = 0, selfRows = '', sumSelf = 0;
     HOUSE.forEach(function(h){
       var stay = per(pools.adult, HEAD.adult) * h.a
                + per(pools.kid,   HEAD.kid)   * h.k
                + per(pools.tot,   HEAD.tot)   * h.t
                + per(pools.adultkid, HEAD.adultkid) * (h.a + h.k);
       var common = per(pools.common, HEAD.adultkid) * (h.a + h.k);
-      sumStay += stay; sumCommon += common;
+      var self   = per(pools.self,   HEAD.adultkid) * (h.a + h.k);
+      sumStay += stay; sumCommon += common; sumSelf += self;
       var n = h.a + h.k + h.t;
       rows += '<tr' + (h.warn ? ' class="warn"' : '') + '>'
             + '<td class="who">' + h.name + '<small>' + h.sub + '／' + n + '名</small></td>'
             + '<td class="num">' + yen(stay) + '</td>'
             + '<td class="num">' + yen(common) + '</td>'
             + '<td class="num tot">' + yen(stay + common) + '</td></tr>';
+      selfRows += '<span>' + h.name + ' <b>' + yen(self) + '</b></span>';
     });
     rows += '<tr class="sum"><td>合計</td><td class="num">' + yen(sumStay) + '</td>'
           + '<td class="num">' + yen(sumCommon) + '</td>'
           + '<td class="num">' + yen(sumStay + sumCommon) + '</td></tr>';
     body.innerHTML = rows;
+
+    var sf = document.getElementById('selfpay');
+    if (sf) {
+      sf.innerHTML = '<div class="self-h">🍜 これとは別に、昼食は当日その場で各自払い（合計 ' + yen(sumSelf) + '）</div>'
+                   + '<div class="self-row">' + selfRows + '</div>';
+    }
   }
 
   function recalc(){
     var total = 0, cash = 0;
-    var pools = { adult:0, kid:0, tot:0, adultkid:0, common:0 };
+    var pools = { adult:0, kid:0, tot:0, adultkid:0, self:0, common:0 };
     inputs.forEach(function(i){
       var v = parseInt(String(i.value).replace(/[^0-9-]/g,''),10);
       if (isNaN(v)) v = 0;
