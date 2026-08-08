@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>朝来・畑のおやど 家族旅行のしおり｜2026.8.16-17</title>
-<meta name="description" content="2026年8月16日〜17日 兵庫県朝来市「畑のおやど」1泊2日 家族旅行のしおり。スケジュール・収支・持ち物。">
+<title>朝来・畑のおやど 家族旅行｜収支と段取り 2026.8.16-17</title>
+<meta name="description" content="2026年8月16日〜17日 兵庫県朝来市「畑のおやど」1泊2日 家族旅行。収支・当日の現金・宿への確認事項。旅程表と持ち物リストへのリンクもここから。">
 <meta name="theme-color" content="#0c1220">
 <meta property="og:title" content="朝来・畑のおやど 家族旅行のしおり">
-<meta property="og:description" content="2026.8.16(日)-17(月) 大人6・子ども3の9名旅。生野銀山、川遊び、収穫野菜のBBQ、星空。">
+<meta property="og:description" content="2026.8.16(日)-17(月) 大人6・子ども3の9名旅。旅程は娘、持ち物は長男、お金は父。3つのページの入口です。">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <style>
@@ -148,6 +148,19 @@ a.map{font-size:11.5px;padding:3px 9px;border-radius:8px;text-decoration:none;co
 .spot h3{margin:6px 0 4px;font-size:15px;font-weight:900}
 .spot p{margin:0;font-size:12.5px;color:var(--ink-dim)}
 
+/* みんなのページ カード */
+a.spot.pagecard{display:block;text-decoration:none;color:inherit}
+.pagecard{border-width:1px}
+.pagecard .by{font-size:11px;font-weight:700;color:var(--ink-faint);border:1px solid var(--line);
+  padding:1px 7px;border-radius:999px;margin-left:5px;vertical-align:middle}
+.pagecard .go{margin-top:10px;font-size:12px;font-weight:800;color:var(--gold)}
+a.pagecard{background:linear-gradient(120deg,rgba(255,209,102,.12),rgba(255,107,107,.07));border-color:rgba(255,209,102,.34)}
+a.pagecard:hover{background:linear-gradient(120deg,rgba(255,209,102,.18),rgba(255,107,107,.10))}
+.pagecard.soon{opacity:.62}
+.pagecard.soon .go{color:var(--ink-faint)}
+.pagecard.here{border-color:rgba(95,224,139,.3);background:rgba(95,224,139,.07)}
+.pagecard.here .go{color:var(--green)}
+
 /* ---------- budget ---------- */
 table{width:100%;border-collapse:collapse;font-size:13.5px}
 th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
@@ -228,7 +241,7 @@ footer a{color:var(--ink-dim)}
   <header class="hero">
     <span class="kicker">⛰️ 2026 SUMMER FAMILY TRIP</span>
     <h1>朝来<span class="grad">・畑のおやど</span><br>1泊2日</h1>
-    <p class="sub">2026年8月16日（日）→ 8月17日（月）／ 兵庫県朝来市多々良木</p>
+    <p class="sub">2026年8月16日（日）→ 8月17日（月）／ 兵庫県朝来市多々良木<br><span style="font-size:13px;color:var(--ink-faint)">収支と段取りのページ（旅程表は娘、持ち物は長男が担当）</span></p>
 
     <div class="cd" id="cd">
       <div class="unit"><div class="num" id="cd-d">--</div><div class="lbl">DAYS</div></div>
@@ -253,12 +266,11 @@ footer a{color:var(--ink-dim)}
   <nav>
     <div class="navrow">
       <a href="#overview">📋 概要</a>
-      <a href="#day1">☀️ 1日目</a>
-      <a href="#day2">🌤️ 2日目</a>
-      <a href="#spots">📍 スポット</a>
+      <a href="#pages">👨‍👩‍👧‍👦 みんなのページ</a>
       <a href="#budget">💰 収支</a>
-      <a href="#packing">🎒 持ち物</a>
-      <a href="#notes">⚠️ メモ</a>
+      <a href="#gear">🏡 宿にあるもの</a>
+      <a href="#spots">📍 行き先メモ</a>
+      <a href="#notes">⚠️ 注意とやること</a>
     </div>
   </nav>
 
@@ -269,227 +281,53 @@ footer a{color:var(--ink-dim)}
       <div class="stat"><div class="k">宿</div><div class="v">畑のおやど<br><small>朝来市多々良木1277／一日一組</small></div></div>
       <div class="stat"><div class="k">プラン</div><div class="v">囲炉裏プラン<br><small>溶岩プレートBBQ＋鉄器鍋＋朝食オプション</small></div></div>
       <div class="stat"><div class="k">IN / OUT</div><div class="v">16:00 → 11:00<br><small>IN枠は16:00〜19:00</small></div></div>
-      <div class="stat"><div class="k">出発 / 帰着</div><div class="v">7:00 → 16:30<br><small>自宅前の駐車場から2台で</small></div></div>
+      <div class="stat"><div class="k">出発 / 帰着</div><div class="v">7:45 → 15:00<br><small>自宅前の駐車場から2台で</small></div></div>
       <div class="stat"><div class="k">車</div><div class="v">父の車＋カーシェア<br><small>タイムズ36時間パック（給油不要）</small></div></div>
-      <div class="stat"><div class="k">往路</div><div class="v">中国道→播但道<br><small>約110km・約2時間</small></div></div>
-      <div class="stat"><div class="k">復路</div><div class="v">北近畿豊岡道→舞鶴若狭道<br><small>約125km・無料区間が長い</small></div></div>
-      <div class="stat"><div class="k">お風呂</div><div class="v">1日目 黒川温泉<br><small>2日目 宝塚・名湯 宝乃湯</small></div></div>
+      <div class="stat"><div class="k">ルート</div><div class="v">往復とも播但道<br><small>中国道→福崎IC→和田山IC→国道9号</small></div></div>
+      <div class="stat"><div class="k">川あそび</div><div class="v">芸術の森の川<br><small>宿の隣・浅くて流れがゆるい</small></div></div>
+      <div class="stat"><div class="k">お風呂</div><div class="v">1日目 よふど温泉<br><small>2日目 宝乃湯は当日判断</small></div></div>
     </div>
 
     <div class="card" style="margin-top:12px">
-      <div style="font-weight:900;margin-bottom:6px">🎯 この日程の設計思想</div>
+      <div style="font-weight:900;margin-bottom:6px">🎯 この日程の考えかた</div>
       <div class="desc">
-        真夏・お盆明け・<b>2歳児同行</b>の3条件から、<b>「暑い時間に涼しい場所にいる」</b>を軸に組みました。<br>
-        1日目は<b>午前に川、正午に温泉</b>で水と汗を落とし、いちばん暑い13〜15時は昼食と買い出しという屋内の時間に充てて、涼しくなってから宿へ。
-        入場料のかかる施設はあえて絞り、<b>無料で長く遊べる場所（川・畑・宿の設備）に時間を寄せて</b>います。歩き回る観光（竹田城跡の登山など）は真夏の日中には入れません。
+        真夏・お盆明け・<b>2歳児同行</b>の3条件から、<b>移動を減らして拠点で長く遊ぶ</b>組み方になっています。<br>
+        川あそびは<b>宿の隣を流れる芸術の森の川</b>。浅くて流れがゆるく、東屋とベンチがあり、移動ゼロ。上がったらそのまま<b>よふど温泉</b>で汗を流して16時にチェックイン。
+        2日目の美術館も<b>宿から徒歩300m</b>です。入場料のかかる施設を絞り、無料で長く遊べる場所に時間を寄せています。<br>
+        歩き回る観光（竹田城跡の登山など）は真夏の日中には入れていません。
       </div>
     </div>
   </section>
 
   <!-- ============ DAY 1 ============ -->
-  <section id="day1">
-    <div class="sec-h"><h2>1日目</h2><span class="en">Day 1</span></div>
-    <div class="dayhead d1">
-      <span class="badge">DAY 1</span>
-      <div><div class="t">8月16日（日）</div><div class="d">川で遊んで、湯に浸かって、畑で採って、火を囲む</div></div>
+  <!-- ============ みんなのページ ============ -->
+  <section id="pages">
+    <div class="sec-h"><h2>みんなのページ</h2><span class="en">Our Pages</span></div>
+    <div class="card" style="margin-bottom:12px">
+      <div style="font-size:13.5px;color:var(--ink-dim)">
+        今回のしおりは<b style="color:var(--ink)">3人で手分けして作りました</b>。旅程は娘、持ち物は長男、お金まわりは父の担当です。<br>
+        <b style="color:var(--gold)">当日の動きは、娘の旅程表が本番です。</b>このページはそれに合わせたお金と段取りのメモです。
+      </div>
     </div>
-
-    <div class="tl">
-      <div class="ev"><div class="ev-in">
-        <div class="ev-top"><span class="time">06:45</span><span class="emo">🚗</span><span class="ttl">自宅前の駐車場に集合・積み込み</span><span class="dur">15分</span></div>
-        <div class="desc">2台に荷物を分散。<b>クーラーボックス（肉）は保冷剤多めで1台に集約</b>すると出し入れが楽。車ごとに大人が最低1人、子どもの配置も先に決めておく。</div>
-        <div class="meta"><span class="tag">🧊 保冷剤／氷</span><span class="tag">📱 2台で連絡グループ</span></div>
-      </div></div>
-
-      <div class="ev"><div class="ev-in">
-        <div class="ev-top"><span class="time">07:00</span><span class="emo">🛣️</span><span class="ttl">出発 → 中国豊中IC から西へ</span><span class="dur">約2時間30分</span></div>
-        <div class="desc">中国自動車道 →<b>福崎IC</b>→ 播但連絡道路を北上 →<b>生野IC</b>→ 国道429号で黒川渓谷へ。<br>途中 <b>加西SA</b>（07:50頃）でトイレ休憩を1回。2歳児のペースを考えて必ず挟む。</div>
-        <div class="meta"><span class="tag warn">🚦 お盆Uターンの渋滞想定</span><span class="tag money">高速 約3,000円/台</span></div>
-      </div></div>
-
-      <div class="ev teal"><div class="ev-in">
-        <div class="ev-top"><span class="time">10:00</span><span class="emo">💦</span><span class="ttl">魚ヶ滝（黒川渓谷）で川遊び</span><span class="dur">約1時間45分</span></div>
-        <div class="desc">
-          今日の<b>主役</b>。<b>魚ヶ滝荘から南へ歩いて川に下りると、ほとんど流れのない浅瀬</b>があり、ここが2歳児の遊び場。
-          9歳・11歳は天然スライダー側で思いきり。<b>滝つぼは大人でも足がつかない深さ</b>なので、必ず線引きして大人を配置。トイレは魚ヶ滝荘にあり。<br>
-          日が高くなってからの方が水温が上がるので、10時スタートがちょうどいい頃合いです。
-        </div>
-        <div class="meta">
-          <span class="tag money">🅿️ 1,000円/台・日 → 2台で2,000円</span>
-          <span class="tag warn">🦺 幼児はライフジャケット＋大人1対1</span>
-          <span class="tag">👟 マリンシューズ推奨</span>
-          <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%AD%9A%E3%83%B6%E6%BB%9D%E8%8D%98" target="_blank" rel="noopener">📍 地図</a>
-        </div>
-        <div class="planb"><b>プランB：ヒメハナ公園</b>（山東町・無料）。増水・雨・水が冷たすぎる時はこちら。170mのローラースライダーと水遊び場、芝生広場、軽食のうつぎホールあり。駐車も無料で、9名でも気楽。<br>
-        <b>本降りなら生野銀山</b>（坑内13℃・雨でも100%快適）に切り替え。9名で8,400円かかるので、晴れた日に使う手ではありません。</div>
-      </div></div>
-
-      <div class="ev violet"><div class="ev-in">
-        <div class="ev-top"><span class="time">12:00</span><span class="emo">♨️</span><span class="ttl">黒川温泉「美人の湯」でひと風呂</span><span class="dur">約1時間</span></div>
-        <div class="desc">
-          <b>魚ヶ滝と同じ黒川渓谷の奥にあり、車で10〜15分</b>。川遊びの水と汗をそのまま流して着替えられる、完璧な位置関係です。
-          兵庫の秘湯と呼ばれる静かな一軒宿の湯。<b>11:00から営業</b>しているので、この時間で問題ありません。
-        </div>
-        <div class="meta">
-          <span class="tag cool">🕚 7〜8月は 11:00〜20:00（受付19:00）</span>
-          <span class="tag money">大人800／子供400／幼児100 ＝ 5,700円</span>
-          <span class="tag">🚫 水曜休（8/16は日曜でOK）</span>
-          <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%BB%92%E5%B7%9D%E6%B8%A9%E6%B3%89%20%E7%BE%8E%E4%BA%BA%E3%81%AE%E6%B9%AF%20%E6%9C%9D%E6%9D%A5%E5%B8%82" target="_blank" rel="noopener">📍 地図</a>
-        </div>
-        <div class="planb"><b>プランBのヒメハナ公園に流れた日は「よふど温泉」へ。</b>朝来市山東町森108、11:00〜21:00（受付20:30）、第3木曜休。公園と同じ山東町なので数分です。</div>
-      </div></div>
-
-      <div class="ev green"><div class="ev-in">
-        <div class="ev-top"><span class="time">13:20</span><span class="emo">🍚</span><span class="ttl">昼食（生野・和田山エリア）</span><span class="dur">約1時間</span></div>
-        <div class="desc">
-          黒川渓谷から国道429号を下って生野市街へ（約20分）。9名なので<b>事前予約か、席数のある道の駅・食堂</b>が安全。お盆明けは営業日が不規則な個人店もあるので、前日に1本電話を。<br>
-          <b>昼食が13:20と遅めなので、車におやつを積んでおいてください。</b>川で遊んだ子どもは確実に途中で空腹を訴えます。
-        </div>
-        <div class="meta"><span class="tag money">目安 9名で約10,000円</span><span class="tag">☎️ 前日確認おすすめ</span><span class="tag warn">🍪 車内おやつ必須</span></div>
-      </div></div>
-
-      <div class="ev"><div class="ev-in">
-        <div class="ev-top"><span class="time">14:35</span><span class="emo">🛒</span><span class="ttl">買い出し（飲み物・氷・不足分）</span><span class="dur">約25分</span></div>
-        <div class="desc">肉は自宅から持参、<b>野菜は宿の畑で収穫する</b>ので、ここで買うのは<b>飲み物・氷・パン・朝の軽食・調味料の不足分</b>だけ。買いすぎ注意。<br>JAファーマーズ「たじまんま和田山」（A-COOP併設）なら地元野菜も追加で拾えます。</div>
-        <div class="meta"><span class="tag money">目安 6,000円</span><span class="tag">🧊 氷は多めに</span></div>
-      </div></div>
-
-      <div class="ev violet"><div class="ev-in">
-        <div class="ev-top"><span class="time">16:00</span><span class="emo">🏡</span><span class="ttl">畑のおやど チェックイン</span><span class="dur">—</span></div>
-        <div class="desc">
-          朝来市多々良木1277。<b>一日一組の一棟貸切</b>。和室4室＋和洋室1室、キッチン・洗濯機・乾燥機あり。
-          <b>宿泊費とオプションは現地現金払い</b>なので、封筒に分けて用意しておくとスマート。
-        </div>
-        <div class="meta">
-          <span class="tag money">現地現金 85,500円（宿泊77,500＋朝食8,000）</span>
-          <span class="tag">🅿️ 無料10台・予約不要</span>
-          <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%85%B5%E5%BA%AB%E7%9C%8C%E6%9C%9D%E6%9D%A5%E5%B8%82%E5%A4%9A%E3%80%85%E8%89%AF%E6%9C%A81277" target="_blank" rel="noopener">📍 地図</a>
-        </div>
-      </div></div>
-
-      <div class="ev green"><div class="ev-in">
-        <div class="ev-top"><span class="time">16:30</span><span class="emo">🥬</span><span class="ttl">野菜の収穫体験（無料）</span><span class="dur">約45分</span></div>
-        <div class="desc">
-          自分で採った野菜をその日のBBQで食べる、この宿の主役イベント。<b>8月中旬なら、なす・ピーマン・きゅうり・トマト・オクラ・枝豆あたり</b>が目安（天候と生育で変動）。
-          2歳児が一番輝く時間なので、<b>カメラはここで構える</b>。
-        </div>
-        <div class="meta"><span class="tag money">無料</span><span class="tag">🧢 帽子・虫よけ</span><span class="tag">📸 集合写真はここ</span></div>
-      </div></div>
-
-      <div class="ev coral"><div class="ev-in">
-        <div class="ev-top"><span class="time">17:30</span><span class="emo">🔥</span><span class="ttl">囲炉裏 × 溶岩プレートBBQ × 鉄器鍋</span><span class="dur">約2.5時間</span></div>
-        <div class="desc">
-          屋根付きテラスなので雨でも決行できます。<b>火起こしは子どもの担当</b>にすると盛り上がる。
-          セルフビールサーバー、そうめん流し台もあるので、大人6名の宴は勝手に成立します。
-        </div>
-        <div class="meta"><span class="tag">🍖 肉は持参分</span><span class="tag">🥬 野菜は自分たちで収穫した分</span><span class="tag">🍺 セルフビールサーバー</span></div>
-      </div></div>
-
-      <div class="ev violet"><div class="ev-in">
-        <div class="ev-top"><span class="time">20:00</span><span class="emo">🔭</span><span class="ttl">星空タイム／プロジェクター</span><span class="dur">自由</span></div>
-        <div class="desc">
-          宿に<b>天体望遠鏡</b>あり。多々良木は市街光が少なく、8月中旬なら<b>ペルセウス座流星群の残り</b>も期待できる時期。
-          子どもが力尽きたら、プロジェクター（Netflix／Prime Video）に切り替えて大人の時間へ。
-        </div>
-        <div class="meta"><span class="tag">🌌 上着1枚（夜は冷える）</span><span class="tag">🎬 プロジェクターあり</span></div>
-      </div></div>
-
-      <div class="ev"><div class="ev-in">
-        <div class="ev-top"><span class="time">21:30</span><span class="emo">😴</span><span class="ttl">就寝</span></div>
-        <div class="desc">幼児は布団なしの予約なので、<b>お昼寝布団やベビー用寝具を持参</b>すると安心。洗濯機・乾燥機が無料なので、川遊びの濡れ物はここで片づけてしまう。</div>
-        <div class="meta"><span class="tag">🧺 洗濯機・乾燥機 無料</span></div>
-      </div></div>
-    </div>
-  </section>
-
-  <!-- ============ DAY 2 ============ -->
-  <section id="day2">
-    <div class="sec-h"><h2>2日目</h2><span class="en">Day 2</span></div>
-    <div class="dayhead d2">
-      <span class="badge">DAY 2</span>
-      <div><div class="t">8月17日（月）</div><div class="d">朝はダム散歩、昼は但馬牛、宝塚でひと風呂して帰宅</div></div>
-    </div>
-
-    <div class="tl">
-      <div class="ev teal"><div class="ev-in">
-        <div class="ev-top"><span class="time">07:00</span><span class="emo">🌄</span><span class="ttl">起床・多々良木ダムのまわりを散歩</span><span class="dur">約40分</span></div>
-        <div class="desc">宿のすぐ上が関西電力の多々良木ダム。<b>朝の空気が一番きれいな時間</b>で、無料貸出の自転車もあります。朝食前に子どものエネルギーを少し抜いておくのがコツ。</div>
-        <div class="meta"><span class="tag">🚲 自転車 無料貸出</span></div>
-      </div></div>
-
-      <div class="ev green"><div class="ev-in">
-        <div class="ev-top"><span class="time">08:00</span><span class="emo">🍳</span><span class="ttl">朝食（オプション）</span><span class="dur">約1時間</span></div>
-        <div class="desc">1,000円/個。<b>個数は宿からの確認事項（現状8個で仮置き）</b>。幼児1名分をどうするか＝取り分けで足りるかを、出発前に返信しておくのが最後の宿題。</div>
-        <div class="meta"><span class="tag money">1,000円 × 8個 ＝ 8,000円</span><span class="tag warn">☎️ 個数を宿へ最終連絡</span></div>
-      </div></div>
-
-      <div class="ev"><div class="ev-in">
-        <div class="ev-top"><span class="time">09:00</span><span class="emo">🧳</span><span class="ttl">荷造り・掃除</span><span class="dur">約45分</span></div>
-        <div class="desc">一棟貸切なので、片づけは<b>チェックアウトの1時間前に全員で一気に</b>。濡れ物は乾燥機にかけた分を回収。忘れ物の定番は充電器・水着・帽子。</div>
-      </div></div>
-
-      <div class="ev violet"><div class="ev-in">
-        <div class="ev-top"><span class="time">09:45</span><span class="emo">🗿</span><span class="ttl">あさご芸術の森美術館</span><span class="dur">約1時間</span></div>
-        <div class="desc">
-          <b>宿から車で数分</b>。多々良木ダムの直下に広がる野外彫刻の森で、朝来市出身・淀井敏夫の作品が屋内外に常設。
-          <b>屋外の彫刻＋芝生</b>なので子どもは走り回れて、大人は静かに見られる、9名の温度差を吸収できる場所です。
-        </div>
-        <div class="meta">
-          <span class="tag cool">🕘 夏期 9:30〜17:00</span>
-          <span class="tag money">大人500／小中200 ＝ 3,400円</span>
-          <span class="tag">🚫 水曜休（月曜は開館）</span>
-          <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%95%E3%81%94%E8%8A%B8%E8%A1%93%E3%81%AE%E6%A3%AE%E7%BE%8E%E8%A1%93%E9%A4%A8" target="_blank" rel="noopener">📍 地図</a>
-        </div>
-      </div></div>
-
-      <div class="ev"><div class="ev-in">
-        <div class="ev-top"><span class="time">11:00</span><span class="emo">👋</span><span class="ttl">チェックアウト</span></div>
-        <div class="desc">精算は<b>現金</b>。領収書をもらって、その場で割り勘の写真を撮っておくと後の精算が一瞬で終わります。</div>
-        <div class="meta"><span class="tag money">💴 現金精算</span></div>
-      </div></div>
-
-      <div class="ev coral"><div class="ev-in">
-        <div class="ev-top"><span class="time">11:30</span><span class="emo">🥩</span><span class="ttl">道の駅 但馬のまほろば（昼食＋お土産）</span><span class="dur">約1時間20分</span></div>
-        <div class="desc">
-          兵庫県最大級の道の駅。レストラン<b>「茶すり庵」の神戸牛100%ハンバーグ定食が人気No.1</b>、フードコートには岩津ねぎメンチカツや地元たまり醤油のラーメン。
-          席数があるので<b>9名でも待ちにくい</b>のが最大の理由です。神戸牛・但馬牛の精肉コーナー、岩津ねぎ加工品などお土産もここで一括。
-        </div>
-        <div class="meta">
-          <span class="tag cool">🕙 10:00〜19:00</span>
-          <span class="tag money">昼食 約12,000円／お土産 約8,000円</span>
-          <span class="tag">🅿️ 大型駐車場</span>
-          <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%81%93%E3%81%AE%E9%A7%85%20%E4%BD%86%E9%A6%AC%E3%81%AE%E3%81%BE%E3%81%BB%E3%82%8D%E3%81%B0" target="_blank" rel="noopener">📍 地図</a>
-        </div>
-        <div class="planb"><b>時短したい日は「道の駅 フレッシュあさご」。</b>播但道 朝来SA直結で、往路と同じ道でそのまま南下できます（20〜30分ショートカット）。</div>
-      </div></div>
-
-      <div class="ev"><div class="ev-in">
-        <div class="ev-top"><span class="time">13:00</span><span class="emo">🛣️</span><span class="ttl">山東IC から帰路へ</span><span class="dur">約1時間45分</span></div>
-        <div class="desc">北近畿豊岡自動車道（<b>無料区間</b>）→ 春日JCT → 舞鶴若狭道 → 吉川JCT → 中国道 →<b>宝塚IC</b>。<br>有料は<b>春日IC以南だけ</b>なので、往路より安く上がります。</div>
-        <div class="meta"><span class="tag money">高速 約2,500円/台</span><span class="tag">🆓 山東〜春日は無料</span></div>
-      </div></div>
-
-      <div class="ev violet"><div class="ev-in">
-        <div class="ev-top"><span class="time">14:45</span><span class="emo">♨️</span><span class="ttl">名湯 宝乃湯（宝塚・中山寺）</span><span class="dur">約1時間30分</span></div>
-        <div class="desc">
-          宝塚市中筋3-3-1。宝塚ICから約10分、そこから自宅まで20分ほどという<b>完全に帰り道の上</b>にある天然温泉です。
-          有馬に近い泉質の黄金泉かけ流しと炭酸泉のひのき風呂。食事処と岩盤浴、地元野菜の「宝山市場」も併設。<br>
-          <b>10:00〜24:00と遅くまでやっている</b>ので、時間に追われません。むしろ<b>夕方の宝塚トンネル渋滞を風呂で待つ</b>くらいの気持ちで。旅の疲れを落としてから帰る、いい締めになります。
-        </div>
-        <div class="meta">
-          <span class="tag cool">🕙 10:00〜24:00（最終受付23:00）</span>
-          <span class="tag money">大人950／小人400 ＝ 6,900円</span>
-          <span class="tag">🅿️ 無料駐車場170台</span>
-          <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%90%8D%E6%B9%AF%20%E5%AE%9D%E4%B9%83%E6%B9%AF%20%E5%AE%9D%E5%A1%9A" target="_blank" rel="noopener">📍 地図</a>
-        </div>
-        <div class="planb"><b>2歳児の体力次第。</b>ぐずるようなら無理せず直帰し、大人だけで後日行く判断もあり。ここは「削っても旅が壊れない」枠です。</div>
-      </div></div>
-
-      <div class="ev green"><div class="ev-in">
-        <div class="ev-top"><span class="time">16:30</span><span class="emo">🏠</span><span class="ttl">帰宅</span></div>
-        <div class="desc">到着後は<b>クーラーボックスと濡れ物だけ先に処理</b>。あとは翌日でいい、と決めておくのが夏旅の鉄則です。<br>カーシェアの返却があるので、<b>先に荷下ろし→給油不要のまま返却</b>の順で。おつかれさまでした！</div>
-        <div class="meta"><span class="tag warn">🚗 タイムズは36時間パックの期限に注意</span></div>
-      </div></div>
+    <div class="spots">
+      <a class="spot pagecard" href="https://rin620317-cyber.github.io/asago-trip-kids/" target="_blank" rel="noopener">
+        <div class="ico">🗓️</div>
+        <h3>旅程表 <span class="by">娘</span></h3>
+        <p>1日目・2日目の流れ。時間・場所・目印まで。タップでチェックできます。</p>
+        <div class="go">ひらく →</div>
+      </a>
+      <div class="spot pagecard soon">
+        <div class="ico">🎒</div>
+        <h3>持ち物リスト <span class="by">長男</span></h3>
+        <p>持っていくもののチェックリスト。宿にある物は下の「宿にあるもの」を参考に。</p>
+        <div class="go">じゅんび中</div>
+      </div>
+      <div class="spot pagecard here">
+        <div class="ico">💰</div>
+        <h3>収支と段取り <span class="by">父</span></h3>
+        <p>お金の見積り、当日の現金、宿への確認事項、運転や暑さの注意。いま見ているページです。</p>
+        <div class="go">このページ</div>
+      </div>
     </div>
   </section>
 
@@ -497,17 +335,16 @@ footer a{color:var(--ink-dim)}
   <section id="spots">
     <div class="sec-h"><h2>行き先メモ</h2><span class="en">Spots</span></div>
     <div class="spots">
-      <div class="spot"><div class="ico">⛏️</div><h3>史跡 生野銀山 ＜雨天時の予備＞</h3><p>坑道約1km・40分、年中13℃前後で雨でも100%快適。ただし<b>9名で8,400円</b>（大人1,200／小中高600／未就学無料）とコスパが合わないため、通常日程からは外しました。本降りの日だけの切り札です。4〜10月 9:00〜17:30。</p></div>
-      <div class="spot"><div class="ico">💦</div><h3>魚ヶ滝（黒川渓谷）</h3><p>天然スライダーと滝つぼ。下流側に流れのない浅瀬あり＝幼児向け。駐車1,000円/台・日、トイレあり。</p></div>
-      <div class="spot"><div class="ico">🛝</div><h3>ヒメハナ公園</h3><p>雨天・増水時のプランB。170mローラースライダー、水遊び場、芝生広場、軽食「うつぎホール」。入園・駐車 無料。</p></div>
-      <div class="spot"><div class="ico">🏡</div><h3>畑のおやど</h3><p>朝来市多々良木1277。一日一組の一棟貸切。囲炉裏・薪ストーブ・溶岩プレートBBQ・そうめん流し台・天体望遠鏡・プロジェクター・洗濯乾燥機。IN16:00／OUT11:00。</p></div>
-      <div class="spot"><div class="ico">🗿</div><h3>あさご芸術の森美術館</h3><p>多々良木ダム直下の野外彫刻の森。夏期9:30〜17:00、大人500／小中200。水曜休。宿から車数分。</p></div>
-      <div class="spot"><div class="ico">♨️</div><h3>黒川温泉「美人の湯」</h3><p>魚ヶ滝と同じ黒川渓谷の奥。7〜8月 11:00〜20:00（受付19:00）、水曜休。大人800／子供400／幼児100。川遊びのあとに直行できる位置。</p></div>
-      <div class="spot"><div class="ico">🥩</div><h3>道の駅 但馬のまほろば</h3><p>山東IC直結。神戸牛レストラン「茶すり庵」、フードコート、但馬牛精肉、岩津ねぎ土産。10:00〜19:00。</p></div>
-      <div class="spot"><div class="ico">🛁</div><h3>名湯 宝乃湯</h3><p>宝塚市中筋3-3-1。10:00〜24:00（最終受付23:00）、大人950／小人400、無料駐車場170台。黄金泉かけ流し＋炭酸泉、食事処・岩盤浴あり。帰り道の完全な順路。</p></div>
-      <div class="spot"><div class="ico">🧖</div><h3>よふど温泉 ＜予備＞</h3><p>朝来市山東町森108。11:00〜21:00（受付20:30）、第3木曜休、食事処あり。ヒメハナ公園に流れた日の風呂はこちら。</p></div>
-      <div class="spot"><div class="ico">🏯</div><h3>竹田城跡 ＜今回は見送り＞</h3><p>宿から約15分。大人500／中学生以下無料、夏期は5:00〜17:00。ただし山城の郷から徒歩20分＋日陰なし。真夏に2歳児連れでは非推奨。<b>雲海の秋に再訪</b>が正解。</p></div>
-      <div class="spot"><div class="ico">🏭</div><h3>神子畑選鉱場跡 ＜予備＞</h3><p>「東洋一の選鉱場」跡の巨大な階段状遺構。10:00〜17:00、水曜休。時間が余った時の差し込み候補。</p></div>
+      <div class="spot"><div class="ico">🏡</div><h3>畑のおやど</h3><p>朝来市多々良木1277／TEL 090-9055-8778。一日一組の一棟貸切、築85年の古民家。和室4室＋和洋室1室。囲炉裏・薪ストーブ・BBQ・そうめん流し台・天体望遠鏡・プロジェクター・洗濯乾燥機。IN16:00／OUT11:00。</p></div>
+      <div class="spot"><div class="ico">🏞️</div><h3>川あそび（芸術の森の川）</h3><p><b>宿のとなり</b>。浅くて流れがゆるく、東屋とベンチあり。移動ゼロで駐車代もかかりません。川底に石が多いのでマリンシューズを。</p></div>
+      <div class="spot"><div class="ico">♨️</div><h3>よふど温泉</h3><p>朝来市山東町森108／079-670-7070。宿から車で約10分。11:00〜21:00（受付20:30）、第3木曜休。大人800円／3歳以上400円。露天・サウナ・水風呂・休憩室・食事処あり。</p></div>
+      <div class="spot"><div class="ico">🥬</div><h3>道の駅 やぶ（養父）</h3><p>養父市場1294-77／079-661-9034。10:00開店。パン屋（COINOBA VILLAGE）と油そばの食堂、鯉の池。1日目・2日目とも昼食はここ。<b>野菜の直売はほぼ無し</b>（野菜は宿の収穫体験で）。</p></div>
+      <div class="spot"><div class="ico">🗿</div><h3>あさご芸術の森美術館</h3><p>多々良木739-3／079-670-4111。<b>宿から南へ300m・歩いて行けます</b>。多々良木ダムの真下の野外彫刻の森。10:00開館、大人500／小中200、<b>現金のみ</b>。水曜休（8/17は月曜でOK）。</p></div>
+      <div class="spot"><div class="ico">🛁</div><h3>名湯 宝乃湯 ＜任意・当日判断＞</h3><p>宝塚市中筋3-3-1。10:00〜24:00（最終受付23:00）、大人950／小人400、無料駐車場170台。帰り道の順路上。子どもの体力を見て、寄るかどうか決めます。</p></div>
+      <div class="spot"><div class="ico">💦</div><h3>魚ヶ滝（黒川渓谷）＜代替＞</h3><p>川が増水した時や、上の子に天然スライダーを体験させたい場合の候補。ただし宿から片道30分、駐車1,000円/台。<b>滝つぼは大人でも足がつかない深さ</b>なので2歳児は浅瀬限定に。</p></div>
+      <div class="spot"><div class="ico">🛝</div><h3>ヒメハナ公園 ＜雨天の代替＞</h3><p>山東町・入園も駐車も無料。170mローラースライダー、水遊び場、芝生広場、軽食「うつぎホール」。よふど温泉と同じ山東町なので組み合わせやすい。</p></div>
+      <div class="spot"><div class="ico">⛏️</div><h3>史跡 生野銀山 ＜本降りの日だけ＞</h3><p>坑道約1km・40分、年中13℃前後で雨でも快適。ただし<b>9名で8,400円</b>（大人1,200／小中高600／未就学無料）。晴れた日に使う手ではありません。4〜10月 9:00〜17:30。</p></div>
+      <div class="spot"><div class="ico">🏯</div><h3>竹田城跡 ＜今回は見送り＞</h3><p>宿から約15分。大人500／中学生以下無料、夏期5:00〜17:00。山城の郷から徒歩20分・日陰なし。<b>雲海の秋に再訪</b>が正解です。</p></div>
     </div>
   </section>
 
@@ -516,7 +353,8 @@ footer a{color:var(--ink-dim)}
     <div class="sec-h"><h2>収支シミュレーション</h2><span class="en">Budget</span></div>
     <div class="card">
       <div style="font-size:12.5px;color:var(--ink-dim);margin-bottom:12px">
-        金額欄は<b style="color:var(--ink)">その場で書き換えられます</b>（合計は自動再計算、この端末に保存）。宿泊費は確定額、それ以外は概算です。
+        金額欄は<b style="color:var(--ink)">その場で書き換えられます</b>（合計は自動再計算、この端末に保存）。宿泊費は確定額、それ以外は概算です。<br>
+        <b style="color:var(--gold)">旅行中はここに実額を打ち込んでいってください。</b>通信がなくても動きます。※保存されるのはこの端末の中だけです。
       </div>
 
       <table id="btable">
@@ -528,24 +366,24 @@ footer a{color:var(--ink-dim)}
           <tr><td>宿泊費 幼児1名 × 1,500円<span class="note">2歳・布団なし</span></td><td class="num"><input class="money" data-cash="1" value="1500"></td></tr>
           <tr><td>朝食オプション 1,000円 × 8個<span class="note">個数は宿へ最終確認（配達可否も宿が確認中）</span></td><td class="num"><input class="money" data-cash="1" value="8000"></td></tr>
 
-          <tr class="grp"><td colspan="2">■ 交通（車2台）</td></tr>
-          <tr><td>高速代 往路 約3,000円 × 2台<span class="note">中国道＋播但連絡道路</span></td><td class="num"><input class="money" value="6000"></td></tr>
-          <tr><td>高速代 復路 約2,500円 × 2台<span class="note">春日IC以南のみ有料</span></td><td class="num"><input class="money" value="5000"></td></tr>
-          <tr><td>ガソリン（父の車のみ・約300km）<span class="note">12km/L・175円/L で試算</span></td><td class="num"><input class="money" value="4400"></td></tr>
-          <tr><td>タイムズカー 36時間パック<span class="note">ベーシッククラス目安。8/16 6:30〜8/17 18:30 が枠内。給油不要</span></td><td class="num"><input class="money" value="12000"></td></tr>
-          <tr><td>タイムズカー 距離料金 16円/km × 約320km<span class="note">パック利用時は距離料金が別途かかります</span></td><td class="num"><input class="money" value="5100"></td></tr>
+          <tr class="grp"><td colspan="2">■ 交通（車2台・往復とも播但道）</td></tr>
+          <tr><td>高速代 往路 約3,200円 × 2台<span class="note">中国豊中IC→福崎IC→播但道→和田山IC</span></td><td class="num"><input class="money" value="6400"></td></tr>
+          <tr><td>高速代 復路 約3,200円 × 2台<span class="note">和田山ICから同じ道を戻る</span></td><td class="num"><input class="money" value="6400"></td></tr>
+          <tr><td>ガソリン（父の車のみ・約340km）<span class="note">12km/L・175円/L で試算</span></td><td class="num"><input class="money" value="5000"></td></tr>
+          <tr><td>タイムズカー 36時間パック<span class="note">ベーシッククラス目安。8/16 7:00〜8/17 19:00 が枠内。給油不要</span></td><td class="num"><input class="money" value="12000"></td></tr>
+          <tr><td>タイムズカー 距離料金 16円/km × 約340km<span class="note">パック利用時は距離料金が別途かかります</span></td><td class="num"><input class="money" value="5400"></td></tr>
 
-          <tr class="grp"><td colspan="2">■ 入場・駐車・温泉</td></tr>
-          <tr><td>魚ヶ滝 駐車 1,000円 × 2台</td><td class="num"><input class="money" value="2000"></td></tr>
-          <tr><td>黒川温泉（大人800×6・子供400×2・幼児100）<span class="note">1日目・川遊びのあと</span></td><td class="num"><input class="money" value="5700"></td></tr>
-          <tr><td>あさご芸術の森美術館（大人6・小学2）</td><td class="num"><input class="money" value="3400"></td></tr>
-          <tr><td>名湯 宝乃湯（大人950×6・小人400×3）<span class="note">2日目・宝塚。2歳の扱いは現地確認</span></td><td class="num"><input class="money" value="6900"></td></tr>
+          <tr class="grp"><td colspan="2">■ 入場・温泉</td></tr>
+          <tr><td>よふど温泉（大人800×6・3歳以上400×2）<span class="note">1日目・川あそびのあと。2歳の扱いは要確認</span></td><td class="num"><input class="money" value="5600"></td></tr>
+          <tr><td>あさご芸術の森美術館（大人500×6・小中200×2）<span class="note">⚠️ 現金のみ。宿から徒歩300m</span></td><td class="num"><input class="money" data-cash="1" value="3400"></td></tr>
+          <tr><td>川あそび（芸術の森の川）<span class="note">宿の隣・駐車も無料</span></td><td class="num"><input class="money" value="0"></td></tr>
+          <tr><td>【任意】名湯 宝乃湯<span class="note">2日目・宝塚。当日判断。やめる場合は0に</span></td><td class="num"><input class="money" value="6900"></td></tr>
 
           <tr class="grp"><td colspan="2">■ 食費</td></tr>
-          <tr><td>BBQ用の肉（持参分の購入）<span class="note">9名分・マエダ食品で前日購入</span></td><td class="num"><input class="money" value="15000"></td></tr>
-          <tr><td>飲み物・氷・調味料・朝の軽食</td><td class="num"><input class="money" value="6000"></td></tr>
-          <tr><td>1日目 昼食（9名）</td><td class="num"><input class="money" value="10000"></td></tr>
-          <tr><td>2日目 昼食（9名・但馬のまほろば）</td><td class="num"><input class="money" value="12000"></td></tr>
+          <tr><td>BBQ用の肉（持参分の購入）<span class="note">9名分・マエダ食品で前日購入。半冷凍にすると保冷剤がわり</span></td><td class="num"><input class="money" value="15000"></td></tr>
+          <tr><td>飲み物・氷・そうめん・調味料</td><td class="num"><input class="money" value="6000"></td></tr>
+          <tr><td>1日目 昼食（9名・道の駅やぶ）<span class="note">食堂の油そば／パン屋</span></td><td class="num"><input class="money" value="9000"></td></tr>
+          <tr><td>2日目 昼食（9名・道の駅やぶ）</td><td class="num"><input class="money" value="9000"></td></tr>
           <tr><td>おやつ・SA休憩</td><td class="num"><input class="money" value="3000"></td></tr>
 
           <tr class="grp"><td colspan="2">■ その他</td></tr>
@@ -562,7 +400,7 @@ footer a{color:var(--ink-dim)}
       <div class="cashbox">
         <div class="h">💴 当日 現金で必要な額</div>
         <div style="font-size:13.5px;color:var(--ink-dim);margin-top:3px">
-          畑のおやどは<b style="color:var(--ink)">現地現金払い</b>。宿泊費＋朝食オプションで <b id="cash" style="color:var(--green);font-size:17px">¥0</b> を、あらかじめ封筒に用意しておく。
+          畑のおやどは<b style="color:var(--ink)">現地現金払い</b>。<b style="color:var(--ink)">美術館も現金のみ</b>です。合わせて <b id="cash" style="color:var(--green);font-size:17px">¥0</b> を、あらかじめ封筒に用意しておく。
         </div>
       </div>
 
@@ -573,74 +411,17 @@ footer a{color:var(--ink-dim)}
     </div>
   </section>
 
-  <!-- ============ PACKING ============ -->
-  <section id="packing">
-    <div class="sec-h"><h2>持ち物チェック</h2><span class="en">Packing</span></div>
-    <div class="card">
-      <div class="progress"><i id="pbar"></i></div>
-      <div style="font-size:12px;color:var(--ink-faint);margin-bottom:12px"><span id="pcount">0</span> / <span id="ptotal">0</span> 完了</div>
-
-      <div class="clhead">🔥 食材まわり（調理器具・食器・調味料は宿にあります）</div>
-      <div class="cl">
-        <label><input type="checkbox"><span>肉（9名分・クーラーボックス）</span></label>
-        <label><input type="checkbox"><span><b>氷</b>（製氷機なし・多めに）</span></label>
-        <label><input type="checkbox"><span>保冷剤</span></label>
-        <label><input type="checkbox"><span>飲み物（大人用・子ども用）</span></label>
-        <label><input type="checkbox"><span>サラダ用の生野菜（畑の収穫は焼き物向き）</span></label>
-        <label><input type="checkbox"><span>こだわりの調味料（焼肉のたれ等）※基本調味料は宿にあり</span></label>
-        <label><input type="checkbox"><span>ゴミ袋（念のため）</span></label>
+  <!-- ============ 宿にあるもの ============ -->
+  <section id="gear">
+    <div class="sec-h"><h2>宿にあるもの</h2><span class="en">Provided</span></div>
+    <div class="card" style="margin-bottom:12px">
+      <div style="font-size:13.5px;color:var(--ink-dim)">
+        <b style="color:var(--ink)">持ち物リストは長男が作っています。</b>このページには、その判断のもとになる「宿に何が揃っているか」の調査結果だけを置いています。<br>
+        持ち物のチェックは <a href="#pages" style="color:var(--gold)">みんなのページ</a> から長男のリストへどうぞ。
       </div>
-
-      <div class="clhead">💦 川遊び・温泉</div>
-      <div class="cl">
-        <label><input type="checkbox"><span><b>温泉用のタオル9人分</b>（宿のタオルは温泉に使えません）</span></label>
-        <label><input type="checkbox"><span>風呂上がりの着替え（1日目・2日目とも）</span></label>
-        <label><input type="checkbox"><span>水着（全員）・ラッシュガード</span></label>
-        <label><input type="checkbox"><span>ライフジャケット（2歳児 必須）</span></label>
-        <label><input type="checkbox"><span>マリンシューズ／濡れてもいいサンダル</span></label>
-        <label><input type="checkbox"><span>バスタオル（人数分＋予備）</span></label>
-        <label><input type="checkbox"><span>濡れ物用のビニール袋</span></label>
-        <label><input type="checkbox"><span>浮き輪・水鉄砲</span></label>
-        <label><input type="checkbox"><span>レジャーシート・折りたたみ椅子</span></label>
-      </div>
-
-      <div class="clhead">👶 子ども・2歳児</div>
-      <div class="cl">
-        <label><input type="checkbox"><span>ベビー用寝具（幼児は布団なし予約／宿に要確認）</span></label>
-        <label><input type="checkbox"><span>おむつ・おしりふき（多め）</span></label>
-        <label><input type="checkbox"><span>着替え（1日3セット想定）</span></label>
-        <label><input type="checkbox"><span>食事用エプロン ※食器は宿にあり</span></label>
-        <label><input type="checkbox"><span>お気に入りのおもちゃ・絵本</span></label>
-        <label><input type="checkbox"><span>車内用のおやつ・DVD/タブレット</span></label>
-      </div>
-
-      <div class="clhead">🌞 暑さ・虫・安全</div>
-      <div class="cl">
-        <label><input type="checkbox"><span>帽子（全員）</span></label>
-        <label><input type="checkbox"><span>日焼け止め</span></label>
-        <label><input type="checkbox"><span>虫よけ・かゆみ止め（畑と川で必須）</span></label>
-        <label><input type="checkbox"><span>羽織り物（山あいの夜は冷えます）</span></label>
-        <label><input type="checkbox"><span>経口補水液・塩分タブレット</span></label>
-        <label><input type="checkbox"><span><b>両親の常備薬</b>・絆創膏・体温計</span></label>
-        <label><input type="checkbox"><span>保険証・母子手帳（コピー可）</span></label>
-      </div>
-
-      <div class="clhead">🚗 車・その他</div>
-      <div class="cl">
-        <label><input type="checkbox"><span>現金 85,500円（宿泊＋朝食）</span></label>
-        <label><input type="checkbox"><span>ETCカード（2台とも確認）</span></label>
-        <label><input type="checkbox"><span>チャイルドシート・ジュニアシート</span></label>
-        <label><input type="checkbox"><span>モバイルバッテリー・充電ケーブル</span></label>
-        <label><input type="checkbox"><span>カメラ／三脚（星空・収穫体験）</span></label>
-        <label><input type="checkbox"><span>酔い止め（山道あり）</span></label>
-        <label><input type="checkbox"><span>パジャマ・寝間着（有無の情報が割れているため）</span></label>
-        <label><input type="checkbox"><span>歯ブラシ（一応。ハミガキセットありの記載も）</span></label>
-      </div>
-
-      <div style="margin-top:14px"><button class="btn" id="clreset">↺ チェックを全部外す</button></div>
     </div>
 
-    <div class="card" style="margin-top:12px">
+    <div class="card">
       <div style="font-weight:900;margin-bottom:4px;color:var(--green);font-size:15px">🚫 持っていかなくていいもの</div>
       <div style="font-size:12.5px;color:var(--ink-dim);margin-bottom:10px">下は<b style="color:var(--ink)">すべて宿に備わっています</b>。Googleの口コミ・じゃらん・楽天の設備欄で確認済み。「食材さえ持って行けばあとの備品は何も要らない」という声が複数あります。</div>
 
@@ -718,35 +499,36 @@ footer a{color:var(--ink-dim)}
 
     <div class="callout jam">
       <span class="h">🚦 お盆Uターンのピークにあたる</span>
-      8/16（日）〜8/17（月）は<b>Uターンラッシュのど真ん中</b>。中国道の宝塚トンネル付近は上下線とも渋滞の常連です。7:00出発を守れば往路の混雑は避けやすく、復路も13:00発なら夕方のピーク前に抜けられます。
+      8/16（日）〜8/17（月）は<b>Uターンラッシュのど真ん中</b>。中国道の宝塚トンネル付近は上下線とも渋滞の常連です。7:45出発なら往路のピークは避けやすく、復路も13:00発なら夕方の混雑前に抜けられます。
       また<b>お盆期間はETCの休日割引が適用除外になるのが通例</b>なので、高速代は割引なしで見積もっています。
     </div>
 
     <div class="callout hot">
       <span class="h">🥵 熱中症・水の事故</span>
-      但馬は市街地より涼しいとはいえ、日中は普通に猛暑です。<b>11時〜15時は屋内か水辺</b>に置くのがこの日程の肝。<br>
-      魚ヶ滝の<b>滝つぼは大人でも足がつかない深さ</b>。「ここから先は行かない」の線を到着直後に全員で共有し、2歳児には必ず大人1名が張り付いてください。増水時・雨天時はためらわずヒメハナ公園へ。
+      但馬は市街地より涼しいとはいえ、日中は普通に猛暑です。<br>
+      川あそびの場所は宿の隣の<b>浅くて流れがゆるい川</b>を選んでいますが、川は川です。2歳児には必ず大人1名が張り付いてください。<b>川底に石が多い</b>ので、全員マリンシューズを。増水・雨天ならヒメハナ公園へ切り替えます。
     </div>
 
     <div class="callout info">
-      <span class="h">📞 出発までの宿題</span>
-      ① <b>朝食オプションの個数</b>を宿へ返信（8個で確定するか、幼児分をどうするか）／
-      ② そらしーどの<b>配達可否</b>の宿からの回答を確認／
-      ③ <b>生ビール・ハイボールのサーバーは事前申し込み制</b>。大人6名なら申し込む価値あり（口コミ情報／料金は要確認）／
-      ④ <b>幼児（2歳）の布団</b>は「布団なし」予約。貸出があるか、持参が必要かを確認／
-      ⑤ 8/15に<b>1日目の昼食</b>の営業と席を電話確認／
-      ⑥ 現金 85,500円を封筒に準備。
+      <span class="h">📞 出発までに宿へ電話（090-9055-8778）</span>
+      ① <b>9人に人数変更したことが伝わっているか</b>の最終確認／
+      ② <b>布団の枚数と部屋割り</b>（幼児は「布団なし」予約。貸出があるか持参か）／
+      ③ <b>朝食オプションの個数</b>を返信（8個で確定するか、幼児分をどうするか）／
+      ④ <b>収穫体験は「小学生以上」なのか</b>＝2歳が参加できるか（旅程表にその記載あり）／
+      ⑤ <b>生ビール・ハイボールのサーバーは事前申し込み制</b>。大人6名なら申し込む価値あり／
+      ⑥ そらしーどの<b>配達可否</b>の回答を確認。
     </div>
 
     <ul class="notes">
-      <li><b>チェックイン16:00・チェックアウト11:00。</b>チェックインは16:00〜19:00の枠なので、川遊びが延びても19時までに入れば大丈夫。ただし夕食を自炊するぶん、遅れるほど夜が押します。</li>
-      <li><b>一棟貸切＝設備は全部自分たちのもの。</b>洗濯機・乾燥機が無料なので、川遊びの濡れ物・砂だらけの服はその日のうちに片づけてしまうのが正解。</li>
+      <li><b>現金を忘れずに。</b>宿は現地現金払い、<b>美術館も現金のみ</b>です。合わせて封筒に用意しておいてください。</li>
+      <li><b>道の駅やぶは1日目・2日目とも昼食で使います。</b>8/17は月曜なので、<b>営業日を前日までに電話で確認</b>を（079-661-9034）。道の駅は月曜定休のところが少なくありません。</li>
+      <li><b>お肉は半冷凍にして持っていく。</b>保冷剤がわりになります。朝から夕方まで10時間ぶんの保冷が必要なので、クーラーボックスは肉用と飲み物用で分けて、肉用は開け閉めしないこと。</li>
+      <li><b>一棟貸切＝設備は全部自分たちのもの。</b>洗濯機・乾燥機が無料なので、川あそびの濡れ物・砂だらけの服はその日のうちに片づけてしまうのが正解。</li>
       <li><b>入場料のかかる施設は絞りました。</b>9名だと入場料が一気に効くため（生野銀山なら8,400円）、川・畑・宿の設備という「無料で長く遊べるもの」に時間を寄せています。</li>
-      <li><b>あさご芸術の森美術館は水曜休。</b>8/17は月曜なので開いていますが、展示替え日にあたっていないか前日に公式で確認を。</li>
-      <li><b>竹田城跡は今回あえて外しました。</b>宿から15分と近いものの、山城の郷から徒歩20分・日陰ほぼなしで、真夏の日中に2歳児を連れて行く場所ではありません。行くなら早朝5時台か、雲海の秋に改めて。</li>
-      <li><b>2台の連携。</b>出発前にLINEグループを作り、休憩ポイント（加西SA・山東IC）を先に共有しておくと、はぐれても合流できます。</li>
-      <li><b>カーシェアは36時間パックの枠を死守。</b>8/16 6:30出発なら期限は8/17 18:30。超えると割高な延長料金になります。給油は不要ですが、<b>パック利用中は距離料金 16円/km が別途</b>かかる点だけ忘れずに（約320kmで5,100円前後）。</li>
-      <li><b>お風呂を入れたぶん、帰宅は16:30頃になります。</b>15時に戻したい場合は、2日目の昼食を「道の駅 但馬のまほろば」から播但道直結の「フレッシュあさご」に変えると20〜30分縮みます。</li>
+      <li><b>あさご芸術の森美術館は水曜休。</b>8/17は月曜なので開いていますが、展示替え日にあたっていないか前日に公式で確認を。宿から徒歩300mなので、荷物を車に積んでから歩いて行けます。</li>
+      <li><b>2台の連携。</b>出発前にLINEグループを作り、休憩ポイントを先に共有しておくと、はぐれても合流できます。</li>
+      <li><b>カーシェアは36時間パックの枠を死守。</b>8/16 7:00出発なら期限は8/17 19:00。超えると割高な延長料金になります。給油は不要ですが、<b>パック利用中は距離料金 16円/km が別途</b>かかります（約340kmで5,400円前後）。</li>
+      <li><b>宝乃湯に寄ると帰宅は16:30頃</b>になります。寄らなければ15:00頃。子どもの体力を見て当日決めてください。収支には「任意」として入れてあるので、やめる場合は金額を0にすれば総額が下がります。</li>
       <li><b>コンビニが車で数分。</b>忘れ物はほぼ現地で調達できます（口コミ情報）。宿までの道も「別に狭くない」との複数の証言があるので、運転の不安は不要です。</li>
       <li><b>夜間は鹿や狸が道路に出ます。</b>暗くなってからの移動は速度を落として。到着後は極力運転しない前提で組んでいます。</li>
       <li><b>囲炉裏は火を扱います。</b>口コミにも「配慮はされているが、火を扱う以上こちらが気をつける必要がある」とあります。2歳児と火の距離だけは、大人の誰か1人が常に見る担当を決めておいてください。</li>
@@ -857,34 +639,6 @@ footer a{color:var(--ink-dim)}
     recalc();
   });
   recalc();
-
-  /* ---- checklist ---- */
-  var CKEY = 'asago2026.packing.v1';
-  var boxes = Array.prototype.slice.call(document.querySelectorAll('.cl input[type=checkbox]'));
-  var bar = document.getElementById('pbar'),
-      pc  = document.getElementById('pcount'),
-      pt  = document.getElementById('ptotal');
-  pt.textContent = boxes.length;
-  function syncCl(save){
-    var done = boxes.filter(function(b){ return b.checked; }).length;
-    pc.textContent = done;
-    bar.style.width = (boxes.length ? (done/boxes.length*100) : 0) + '%';
-    if (save){
-      try { localStorage.setItem(CKEY, JSON.stringify(boxes.map(function(b){return b.checked;}))); } catch(e){}
-    }
-  }
-  try {
-    var sc = JSON.parse(localStorage.getItem(CKEY) || 'null');
-    if (Array.isArray(sc) && sc.length === boxes.length){
-      boxes.forEach(function(b,idx){ b.checked = !!sc[idx]; });
-    }
-  } catch(e){}
-  boxes.forEach(function(b){ b.addEventListener('change', function(){ syncCl(true); }); });
-  document.getElementById('clreset').addEventListener('click', function(){
-    boxes.forEach(function(b){ b.checked = false; });
-    syncCl(true);
-  });
-  syncCl(false);
 
   /* ---- copy url ---- */
   var cp = document.getElementById('copy');
