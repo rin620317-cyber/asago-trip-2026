@@ -170,12 +170,32 @@ tr.grp td{background:rgba(255,255,255,.05);font-weight:900;font-size:12px;letter
 input.money{width:96px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--ink);
   border-radius:8px;padding:5px 8px;text-align:right;font-size:13.5px;font-variant-numeric:tabular-nums;font-family:inherit}
 input.money:focus{outline:2px solid rgba(255,179,71,.5);outline-offset:1px}
+/* 確定値：編集できないことが見て分かるようにする */
+input.money[readonly]{background:rgba(95,224,139,.10);border-color:rgba(95,224,139,.30);
+  color:#dff5e6;font-weight:800;cursor:default}
+input.money[readonly]:focus{outline:none}
+.lock{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.04em;color:var(--green);
+  border:1px solid rgba(95,224,139,.32);background:rgba(95,224,139,.10);
+  padding:1px 7px;border-radius:6px;margin-left:6px;vertical-align:middle}
 .note{font-size:11.5px;color:var(--ink-faint);display:block;margin-top:2px}
 .total{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;padding:14px 16px;border-radius:16px;
   background:linear-gradient(100deg,rgba(255,179,71,.16),rgba(255,107,107,.12));border:1px solid rgba(255,179,71,.3)}
 .total .lab{font-size:12px;color:var(--ink-dim);letter-spacing:.06em}
 .total .big{font-size:27px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1.2}
 .total .per{font-size:12px;color:var(--ink-dim);text-align:right}
+/* 世帯ごとの精算 */
+.split{margin-top:14px;padding:14px 15px;border-radius:16px;background:rgba(167,139,250,.09);border:1px solid rgba(167,139,250,.30)}
+.split-h{font-weight:900;font-size:14px;color:#c4b5fd;margin-bottom:4px}
+.split-note{font-size:12px;color:var(--ink-dim);margin-bottom:10px;line-height:1.7}
+.split-note b{color:var(--ink)}
+#stable{font-size:13px}
+#stable th,#stable td{padding:8px 6px;border-bottom:1px solid rgba(255,255,255,.10)}
+#stable .who{font-weight:800}
+#stable .who small{display:block;font-weight:500;font-size:11px;color:var(--ink-faint)}
+#stable tr.sum td{border-bottom:none;border-top:1px solid rgba(167,139,250,.35);font-weight:900;color:#ddd6fe}
+#stable tr.warn .who{color:#ffd166}
+#stable td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+#stable td.tot{font-weight:900;color:var(--ink)}
 .cashbox{margin-top:12px;padding:13px 15px;border-radius:14px;background:rgba(95,224,139,.10);border:1px solid rgba(95,224,139,.32)}
 .cashbox .h{font-weight:900;color:var(--green);font-size:13px}
 .btn{display:inline-block;font-size:12px;font-weight:700;color:var(--ink-dim);background:rgba(255,255,255,.06);
@@ -270,18 +290,24 @@ footer a{color:var(--ink-dim)}
     <div class="sec-h"><h2>収支シミュレーション</h2><span class="en">Budget</span></div>
     <div class="card">
       <div style="font-size:12.5px;color:var(--ink-dim);margin-bottom:12px">
-        金額欄は<b style="color:var(--ink)">その場で書き換えられます</b>（合計は自動再計算、この端末に保存）。宿泊費は確定額、それ以外は概算です。<br>
-        <b style="color:var(--gold)">旅行中はここに実額を打ち込んでいってください。</b>通信がなくても動きます。※保存されるのはこの端末の中だけです。
+        金額欄は<b style="color:var(--ink)">その場で書き換えられます</b>（合計は自動再計算、この端末に保存）。<br>
+        <b style="color:var(--gold)">実額が分かったら、その都度ここに打ち込んでいってください。</b>通信がなくても動きます。※保存されるのはこの端末の中だけです。
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:14px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:12px;color:var(--ink-dim)">
+        <span><span class="lock" style="margin-left:0">確定</span> 金額が決まっているので<b style="color:var(--ink)">編集できません</b></span>
+        <span>それ以外は<b style="color:var(--ink)">概算</b>。実額に上書きしてください</span>
       </div>
 
       <table id="btable">
         <thead><tr><th>項目</th><th class="num">金額</th></tr></thead>
         <tbody>
-          <tr class="grp"><td colspan="2">■ 宿泊（確定・現地現金）</td></tr>
-          <tr><td>宿泊費 大人6名 × 10,000円<span class="note">囲炉裏プラン</span></td><td class="num"><input class="money" data-cash="1" value="60000"></td></tr>
-          <tr><td>宿泊費 小人2名 × 8,000円<span class="note">11歳・9歳</span></td><td class="num"><input class="money" data-cash="1" value="16000"></td></tr>
-          <tr><td>宿泊費 幼児1名 × 1,500円<span class="note">2歳・布団なし</span></td><td class="num"><input class="money" data-cash="1" value="1500"></td></tr>
-          <tr><td>朝食オプション 1,000円 × 8個<span class="note">個数は宿へ最終確認（配達可否も宿が確認中）</span></td><td class="num"><input class="money" data-cash="1" value="8000"></td></tr>
+          <tr class="grp"><td colspan="2">■ 宿泊（現地現金払い）</td></tr>
+          <tr><td>宿泊費 大人6名 × 10,000円<span class="lock">確定</span><span class="note">囲炉裏プラン</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="adult" value="60000"></td></tr>
+          <tr><td>宿泊費 小人2名 × 8,000円<span class="lock">確定</span><span class="note">11歳・9歳</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="kid" value="16000"></td></tr>
+          <tr><td>宿泊費 幼児1名 × 1,500円<span class="lock">確定</span><span class="note">2歳・布団なし</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="tot" value="1500"></td></tr>
+          <tr><td>朝食オプション 1,000円 × 8個<span class="lock">確定</span><span class="note">宿と確認済み</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="adultkid" value="8000"></td></tr>
+          <tr><td>その他オプション（生ビールサーバー）<span class="note">事前申込は済み。料金は現地で確認 → 分かった時点でここに入力。大人で頭割りします</span></td><td class="num"><input class="money" data-cash="1" data-alloc="adult" value="0"></td></tr>
 
           <tr class="grp"><td colspan="2">■ 交通（車2台・往復とも播但道）</td></tr>
           <tr><td>高速代 往路 約3,200円 × 2台<span class="note">中国豊中IC→福崎IC→播但道→和田山IC</span></td><td class="num"><input class="money" value="6400"></td></tr>
@@ -319,6 +345,18 @@ footer a{color:var(--ink-dim)}
         <div style="font-size:13.5px;color:var(--ink-dim);margin-top:3px">
           畑のおやどは<b style="color:var(--ink)">現地現金払い</b>。<b style="color:var(--ink)">美術館も現金のみ</b>です。合わせて <b id="cash" style="color:var(--green);font-size:17px">¥0</b> を、あらかじめ封筒に用意しておく。
         </div>
+      </div>
+
+      <div class="split">
+        <div class="split-h">🧾 世帯ごとの精算</div>
+        <div class="split-note">
+          <b>宿泊まわりは各自の実額</b>（大人10,000／小人8,000／幼児1,500＋朝食1,000、生ビールは大人で頭割り）。<br>
+          <b>それ以外はすべて共通費</b>として、幼児を除く8名で割っています。
+        </div>
+        <table id="stable">
+          <thead><tr><th>世帯</th><th class="num">宿泊まわり</th><th class="num">共通費</th><th class="num">合計</th></tr></thead>
+          <tbody id="sbody"></tbody>
+        </table>
       </div>
 
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
@@ -413,14 +451,55 @@ footer a{color:var(--ink-dim)}
   }).join('|');
   var yen = function(n){ return '¥' + Math.round(n).toLocaleString('ja-JP'); };
 
+  /* 世帯構成。大人=a / 小人=k / 幼児=t
+     宿泊まわりは各自の実額、それ以外の共通費は幼児を除く8名で割る。 */
+  var HOUSE = [
+    { name:'林家',       sub:'私・妻・子ども3人', a:2, k:2, t:1 },
+    { name:'ご両親',     sub:'父・母',            a:2, k:0, t:0 },
+    { name:'弟',         sub:'1名',               a:1, k:0, t:0 },
+    { name:'未割当',     sub:'大人1名 ※要確認',   a:1, k:0, t:0, warn:true }
+  ];
+  var HEAD = { adult:0, kid:0, tot:0 };
+  HOUSE.forEach(function(h){ HEAD.adult += h.a; HEAD.kid += h.k; HEAD.tot += h.t; });
+  HEAD.adultkid = HEAD.adult + HEAD.kid;
+
+  function renderSplit(pools){
+    var body = document.getElementById('sbody');
+    if (!body) return;
+    var per = function(pool, head){ return head > 0 ? pool / head : 0; };
+    var rows = '', sumStay = 0, sumCommon = 0;
+    HOUSE.forEach(function(h){
+      var stay = per(pools.adult, HEAD.adult) * h.a
+               + per(pools.kid,   HEAD.kid)   * h.k
+               + per(pools.tot,   HEAD.tot)   * h.t
+               + per(pools.adultkid, HEAD.adultkid) * (h.a + h.k);
+      var common = per(pools.common, HEAD.adultkid) * (h.a + h.k);
+      sumStay += stay; sumCommon += common;
+      var n = h.a + h.k + h.t;
+      rows += '<tr' + (h.warn ? ' class="warn"' : '') + '>'
+            + '<td class="who">' + h.name + '<small>' + h.sub + '／' + n + '名</small></td>'
+            + '<td class="num">' + yen(stay) + '</td>'
+            + '<td class="num">' + yen(common) + '</td>'
+            + '<td class="num tot">' + yen(stay + common) + '</td></tr>';
+    });
+    rows += '<tr class="sum"><td>合計</td><td class="num">' + yen(sumStay) + '</td>'
+          + '<td class="num">' + yen(sumCommon) + '</td>'
+          + '<td class="num">' + yen(sumStay + sumCommon) + '</td></tr>';
+    body.innerHTML = rows;
+  }
+
   function recalc(){
     var total = 0, cash = 0;
+    var pools = { adult:0, kid:0, tot:0, adultkid:0, common:0 };
     inputs.forEach(function(i){
       var v = parseInt(String(i.value).replace(/[^0-9-]/g,''),10);
       if (isNaN(v)) v = 0;
       total += v;
       if (i.dataset.cash === '1') cash += v;
+      var a = i.dataset.alloc;
+      if (a && pools.hasOwnProperty(a)) { pools[a] += v; } else { pools.common += v; }
     });
+    renderSplit(pools);
     document.getElementById('grand').textContent = yen(total);
     document.getElementById('per').textContent = yen(total/8);   // 幼児(2歳)は割り勘から除外
     document.getElementById('peradult').textContent = yen(total/6);
@@ -439,7 +518,11 @@ footer a{color:var(--ink-dim)}
     }
   } catch(e){}
   try { localStorage.removeItem('asago2026.budget.v1'); } catch(e){}   // 旧キーの掃除
+  // 確定値は保存値で上書きさせない（古い保存が確定額を書き換えてしまうため）
+  inputs.forEach(function(i,idx){ if (i.dataset.fixed === '1') i.value = defaults[idx]; });
+
   inputs.forEach(function(i){
+    if (i.dataset.fixed === '1'){ i.readOnly = true; i.tabIndex = -1; return; }
     i.setAttribute('inputmode','numeric');
     i.addEventListener('input', recalc);
     i.addEventListener('focus', function(){ i.select(); });
