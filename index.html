@@ -329,8 +329,7 @@ footer a{color:var(--ink-dim)}
           <tr><td>2日目 昼食（9名・道の駅やぶ）</td><td class="num"><input class="money" value="9000"></td></tr>
           <tr><td>おやつ・SA休憩</td><td class="num"><input class="money" value="3000"></td></tr>
 
-          <tr class="grp"><td colspan="2">■ その他</td></tr>
-          <tr><td>予備費<span class="note">突発・延長・忘れ物購入用。※お土産は各自負担なので含みません</span></td><td class="num"><input class="money" value="15000"></td></tr>
+          <tr class="grp"><td colspan="2" style="color:var(--ink-faint);font-weight:600">※ お土産・予備費は各自負担のため、この表には含みません</td></tr>
         </tbody>
       </table>
 
@@ -455,8 +454,8 @@ footer a{color:var(--ink-dim)}
   var HOUSE = [
     { name:'林家',   sub:'私・妻・子ども3人', a:2, k:2, t:1 },
     { name:'ご両親', sub:'父・母',            a:2, k:0, t:0 },
-    { name:'弟 ①',  sub:'1名',               a:1, k:0, t:0 },
-    { name:'弟 ②',  sub:'1名',               a:1, k:0, t:0 }
+    { name:'仁',     sub:'1名',               a:1, k:0, t:0 },
+    { name:'陽',     sub:'1名',               a:1, k:0, t:0 }
   ];
   var HEAD = { adult:0, kid:0, tot:0 };
   HOUSE.forEach(function(h){ HEAD.adult += h.a; HEAD.kid += h.k; HEAD.tot += h.t; });
