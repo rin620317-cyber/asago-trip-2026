@@ -604,9 +604,16 @@ footer a{color:var(--ink-dim)}
   }
 
   /* ---- budget ---- */
-  var KEY = 'asago2026.budget.v1';
+  var KEY = 'asago2026.budget.v2';
   var inputs = Array.prototype.slice.call(document.querySelectorAll('input.money'));
   var defaults = inputs.map(function(i){ return i.value; });
+  // 項目そのものが変わったら保存値を捨てる。
+  // 行数だけ見ていると「項目を入れ替えたのに件数は同じ」ケースで、
+  // 別の項目の金額が居座る（例：ラベルは よふど温泉 なのに中身は黒川温泉の額）。
+  var SIG = defaults.join('|') + '#' + inputs.map(function(i){
+    var td = i.closest('td'); var tr = td && td.parentNode;
+    return tr ? (tr.cells[0].textContent || '').replace(/\s+/g,'').slice(0,24) : '';
+  }).join('|');
   var yen = function(n){ return '¥' + Math.round(n).toLocaleString('ja-JP'); };
 
   function recalc(){
@@ -621,14 +628,20 @@ footer a{color:var(--ink-dim)}
     document.getElementById('per').textContent = yen(total/8);   // 幼児(2歳)は割り勘から除外
     document.getElementById('peradult').textContent = yen(total/6);
     document.getElementById('cash').textContent = yen(cash);
-    try { localStorage.setItem(KEY, JSON.stringify(inputs.map(function(i){return i.value;}))); } catch(e){}
+    try {
+      localStorage.setItem(KEY, JSON.stringify({ sig: SIG, values: inputs.map(function(i){return i.value;}) }));
+    } catch(e){}
   }
   try {
     var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
-    if (Array.isArray(saved) && saved.length === inputs.length){
-      inputs.forEach(function(i,idx){ i.value = saved[idx]; });
+    if (saved && saved.sig === SIG && Array.isArray(saved.values) && saved.values.length === inputs.length){
+      inputs.forEach(function(i,idx){ i.value = saved.values[idx]; });
+    } else if (saved) {
+      // 項目が変わっている＝古い金額は信用できないので捨てる
+      localStorage.removeItem(KEY);
     }
   } catch(e){}
+  try { localStorage.removeItem('asago2026.budget.v1'); } catch(e){}   // 旧キーの掃除
   inputs.forEach(function(i){
     i.setAttribute('inputmode','numeric');
     i.addEventListener('input', recalc);
