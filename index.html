@@ -319,8 +319,8 @@ footer a{color:var(--ink-dim)}
           <tr><td>高速代 往路 2,170円 × 2台<span class="note">中国豊中IC→福崎IC→播但道→山東IC</span></td><td class="num"><input class="money" value="4340"></td></tr>
           <tr><td>高速代 復路 1,870円 × 2台<span class="note">同じ道を戻る（往路と差があるのは時間帯割引のため）</span></td><td class="num"><input class="money" value="3740"></td></tr>
           <tr><td>ガソリン（父の車のみ・240km）<span class="note">12km/L・175円/L で概算</span></td><td class="num"><input class="money" value="3500"></td></tr>
-          <tr><td>タイムズカー 36時間パック<span class="note">ベーシッククラス目安。8/16 7:00〜8/17 19:00 が枠内。給油不要</span></td><td class="num"><input class="money" value="12000"></td></tr>
-          <tr><td>タイムズカー 距離料金 16円/km × 240km<span class="lock">確定</span><span class="note">走行距離はタイムズの明細で確定</span></td><td class="num"><input class="money" data-fixed="1" value="3840"></td></tr>
+          <tr><td>タイムズカー（使用料＋距離料金）<span class="lock">確定</span><span class="note">240km走行分を含む合算額</span></td><td class="num"><input class="money" data-fixed="1" value="13200"></td></tr>
+          
 
           <tr class="grp"><td colspan="2">■ 入場・温泉</td></tr>
           <tr><td>よふど温泉（大人800×6・3歳以上400×2）<span class="lock">確定</span><span class="note">1日目・川あそびのあと</span></td><td class="num"><input class="money" data-fixed="1" value="5600"></td></tr>
@@ -355,7 +355,7 @@ footer a{color:var(--ink-dim)}
         <div class="split-h">🧾 世帯ごとの精算</div>
         <div class="split-note">
           <b>宿泊費は各自の実額</b>（大人10,000／小人8,000／幼児1,500＋朝食1,000）。<br>
-          <b>それ以外は共通費</b>として、幼児を除く8名で割っています。<b>昼食は精算に含めず、当日その場で各自払い</b>です。
+          <b>それ以外は共通費</b>。幼児は除き、<b>小学生は0.5人分</b>として数えるので、合計<b>7人分</b>で割っています。<b>昼食は精算に含めず、当日その場で各自払い</b>です。
         </div>
         <table id="stable">
           <thead><tr><th>世帯</th><th class="num">宿泊まわり</th><th class="num">共通費</th><th class="num">精算額</th></tr></thead>
@@ -467,6 +467,7 @@ footer a{color:var(--ink-dim)}
   var HEAD = { adult:0, kid:0, tot:0 };
   HOUSE.forEach(function(h){ HEAD.adult += h.a; HEAD.kid += h.k; HEAD.tot += h.t; });
   HEAD.adultkid = HEAD.adult + HEAD.kid;
+  HEAD.weight   = HEAD.adult + HEAD.kid * 0.5;   // 共通費は小学生を0.5人分として割る
 
   function renderSplit(pools){
     var body = document.getElementById('sbody');
@@ -478,7 +479,7 @@ footer a{color:var(--ink-dim)}
                + per(pools.kid,   HEAD.kid)   * h.k
                + per(pools.tot,   HEAD.tot)   * h.t
                + per(pools.adultkid, HEAD.adultkid) * (h.a + h.k);
-      var common = per(pools.common, HEAD.adultkid) * (h.a + h.k);
+      var common = per(pools.common, HEAD.weight) * (h.a + h.k * 0.5);
       var self   = per(pools.self,   HEAD.adultkid) * (h.a + h.k);
       sumStay += stay; sumCommon += common; sumSelf += self;
       var n = h.a + h.k + h.t;
