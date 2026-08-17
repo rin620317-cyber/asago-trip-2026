@@ -310,6 +310,10 @@ footer a{color:var(--ink-dim)}
     <div class="sec-h"><h2>収支シミュレーション</h2><span class="en">Budget</span></div>
     <div class="card"><div class="settle">
         <div class="split-h" style="color:#9be7b0">🧾 立替と精算</div>
+        <div class="split-note" style="margin-bottom:12px">
+          宿泊費は各自の実額。それ以外の共通費は、<b>幼児（2歳）は対象外</b>、<b>小学生2人は0.5人分ずつ</b>として数え、
+          <b>合計7人分</b>で割っています。
+        </div>
         <table id="ptable">
           <thead><tr><th>世帯</th><th class="num">立替えた額</th><th class="num">負担額</th><th class="num">差引</th></tr></thead>
           <tbody id="pbody"></tbody>
@@ -508,8 +512,13 @@ footer a{color:var(--ink-dim)}
       var self   = per(pools.self,   HEAD.adultkid) * (h.a + h.k);
       sumStay += stay; sumCommon += common; sumSelf += self;
       var n = h.a + h.k + h.t;
+      var wp = [];
+      if (h.a) wp.push('大人' + h.a);
+      if (h.k) wp.push('小学生' + h.k + '×0.5');
+      var wlab = wp.join('＋') + ' ＝ ' + (h.a + h.k * 0.5) + '人分' + (h.t ? '（幼児は対象外）' : '');
       rows += '<tr' + (h.warn ? ' class="warn"' : '') + '>'
-            + '<td class="who">' + h.name + '<small>' + h.sub + '／' + n + '名</small></td>'
+            + '<td class="who">' + h.name + '<small>' + h.sub + '／' + n + '名</small>'
+            + '<small style="color:#c4b5fd">共通費は ' + wlab + '</small></td>'
             + '<td class="num">' + yen(stay) + '</td>'
             + '<td class="num">' + yen(common) + '</td>'
             + '<td class="num tot">' + yen(stay + common) + '</td></tr>';
