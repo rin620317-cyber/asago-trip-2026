@@ -202,6 +202,20 @@ input.money[readonly]:focus{outline:none}
 .self-row span{font-size:12px;color:var(--ink-dim);background:rgba(255,255,255,.05);
   border:1px solid var(--line);border-radius:8px;padding:3px 10px}
 .self-row b{color:var(--ink);font-variant-numeric:tabular-nums}
+.settle{margin-top:12px;padding:14px 15px;border-radius:16px;background:rgba(95,224,139,.09);border:1px solid rgba(95,224,139,.30)}
+#ptable{width:100%;border-collapse:collapse;font-size:13px}
+#ptable th,#ptable td{padding:8px 6px;border-bottom:1px solid rgba(255,255,255,.10);text-align:left}
+#ptable th.num,#ptable td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+#ptable .who{font-weight:800}
+#ptable td.plus{color:var(--green);font-weight:900}
+#ptable td.minus{color:#ffb0b0;font-weight:900}
+#transfers{margin-top:12px;display:flex;flex-direction:column;gap:7px}
+.tr-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px;
+  background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.tr-row .from{font-weight:800}
+.tr-row .arw{color:var(--green);font-weight:900}
+.tr-row .amt{margin-left:auto;font-weight:900;font-size:15px;color:var(--green);font-variant-numeric:tabular-nums}
+.tr-none{font-size:13px;color:var(--ink-dim)}
 .cashbox{margin-top:12px;padding:13px 15px;border-radius:14px;background:rgba(95,224,139,.10);border:1px solid rgba(95,224,139,.32)}
 .cashbox .h{font-weight:900;color:var(--green);font-size:13px}
 .btn{display:inline-block;font-size:12px;font-weight:700;color:var(--ink-dim);background:rgba(255,255,255,.06);
@@ -309,27 +323,27 @@ footer a{color:var(--ink-dim)}
         <thead><tr><th>項目</th><th class="num">金額</th></tr></thead>
         <tbody>
           <tr class="grp"><td colspan="2">■ 宿泊（現地現金払い）</td></tr>
-          <tr><td>宿泊費 大人6名 × 10,000円<span class="lock">確定</span><span class="note">囲炉裏プラン</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="adult" value="60000"></td></tr>
-          <tr><td>宿泊費 小人2名 × 8,000円<span class="lock">確定</span><span class="note">11歳・9歳</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="kid" value="16000"></td></tr>
-          <tr><td>宿泊費 幼児1名 × 1,500円<span class="lock">確定</span><span class="note">2歳・布団なし</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="tot" value="1500"></td></tr>
-          <tr><td>朝食オプション 1,000円 × 8個<span class="lock">確定</span><span class="note">宿と確認済み</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="adultkid" value="8000"></td></tr>
-          <tr><td>宿の追加分（生ビールサーバー＋ポップコーン）<span class="lock">確定</span><span class="note">チェックアウト時に精算</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" value="8300"></td></tr>
+          <tr><td>宿泊費 大人6名 × 10,000円<span class="lock">確定</span><span class="note">囲炉裏プラン</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="adult" data-payer="hayashi" value="60000"></td></tr>
+          <tr><td>宿泊費 小人2名 × 8,000円<span class="lock">確定</span><span class="note">11歳・9歳</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="kid" data-payer="hayashi" value="16000"></td></tr>
+          <tr><td>宿泊費 幼児1名 × 1,500円<span class="lock">確定</span><span class="note">2歳・布団なし</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="tot" data-payer="hayashi" value="1500"></td></tr>
+          <tr><td>朝食オプション 1,000円 × 8個<span class="lock">確定</span><span class="note">宿と確認済み</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-alloc="adultkid" data-payer="oya" value="8000"></td></tr>
+          <tr><td>宿の追加分（生ビールサーバー＋ポップコーン）<span class="lock">確定</span><span class="note">チェックアウト時に精算</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-payer="hayashi" value="8300"></td></tr>
 
           <tr class="grp"><td colspan="2">■ 交通（車2台・往復とも播但道）</td></tr>
-          <tr><td>高速代 往路 2,170円 × 2台<span class="note">中国豊中IC→福崎IC→播但道→山東IC</span></td><td class="num"><input class="money" value="4340"></td></tr>
-          <tr><td>高速代 復路 1,870円 × 2台<span class="note">同じ道を戻る（往路と差があるのは時間帯割引のため）</span></td><td class="num"><input class="money" value="3740"></td></tr>
-          <tr><td>ガソリン（父の車のみ・240km）<span class="note">12km/L・175円/L で概算</span></td><td class="num"><input class="money" value="3500"></td></tr>
-          <tr><td>タイムズカー（使用料＋距離料金）<span class="lock">確定</span><span class="note">240km走行分を含む合算額</span></td><td class="num"><input class="money" data-fixed="1" value="13200"></td></tr>
+          <tr><td>高速代（カーシェア車・往復）<span class="note">往路2,170＋復路1,870。林さん立替</span></td><td class="num"><input class="money" data-payer="hayashi" value="4040"></td></tr>
+          <tr><td>高速代（父の車・往復）<span class="note">往路2,170＋復路1,870。お父様立替</span></td><td class="num"><input class="money" data-payer="oya" value="4040"></td></tr>
+          <tr><td>ガソリン（父の車のみ・240km）<span class="note">12km/L・175円/L で概算</span></td><td class="num"><input class="money" data-payer="oya" value="3500"></td></tr>
+          <tr><td>タイムズカー（使用料＋距離料金）<span class="lock">確定</span><span class="note">240km走行分を含む合算額</span></td><td class="num"><input class="money" data-fixed="1" data-payer="hayashi" value="13200"></td></tr>
           
 
           <tr class="grp"><td colspan="2">■ 入場・温泉</td></tr>
-          <tr><td>よふど温泉（大人800×6・3歳以上400×2）<span class="lock">確定</span><span class="note">1日目・川あそびのあと</span></td><td class="num"><input class="money" data-fixed="1" value="5600"></td></tr>
-          <tr><td>あさご芸術の森美術館（大人500×6・小中200×2）<span class="lock">確定</span><span class="note">現金払い</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" value="3400"></td></tr>
+          <tr><td>よふど温泉（大人800×6・3歳以上400×2）<span class="lock">確定</span><span class="note">1日目・川あそびのあと</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-payer="hayashi" value="5600"></td></tr>
+          <tr><td>あさご芸術の森美術館（大人500×6・小中200×2）<span class="lock">確定</span><span class="note">現金払い</span></td><td class="num"><input class="money" data-cash="1" data-fixed="1" data-payer="hayashi" value="3400"></td></tr>
           <tr><td>川あそび（芸術の森の川）<span class="note">宿の隣・駐車も無料</span></td><td class="num"><input class="money" value="0"></td></tr>
           <tr><td>名湯 宝乃湯<span class="note">立ち寄らなかったため0円</span></td><td class="num"><input class="money" value="0"></td></tr>
 
           <tr class="grp"><td colspan="2">■ 食費</td></tr>
-          <tr><td>BBQ用の肉 2,000g<span class="lock">確定</span><span class="note">牛ハラミ（並）1,000g×750＝7,500／和牛 中落ちカルビ 1,000g×610＝6,100<br>マエダ食品（伊丹市千僧3-144-1・072-771-0166）で前日購入。半冷凍にすると保冷剤がわり。⚠️ 注文時に「子どもがいるので薄めに切ってください」と伝える</span></td><td class="num"><input class="money" data-fixed="1" value="13700"></td></tr>
+          <tr><td>BBQ用の肉 2,000g<span class="lock">確定</span><span class="note">牛ハラミ（並）1,000g×750＝7,500／和牛 中落ちカルビ 1,000g×610＝6,100<br>マエダ食品（伊丹市千僧3-144-1・072-771-0166）で前日購入。半冷凍にすると保冷剤がわり。⚠️ 注文時に「子どもがいるので薄めに切ってください」と伝える</span></td><td class="num"><input class="money" data-fixed="1" data-payer="hayashi" value="13700"></td></tr>
           <tr><td>飲み物・氷・そうめん・調味料<span class="note">各自で精算済みのため0円</span></td><td class="num"><input class="money" value="0"></td></tr>
           
           
@@ -362,6 +376,15 @@ footer a{color:var(--ink-dim)}
           <tbody id="sbody"></tbody>
         </table>
         <div id="selfpay"></div>
+      </div>
+
+      <div class="settle">
+        <div class="split-h" style="color:#9be7b0">🧾 立替と精算</div>
+        <table id="ptable">
+          <thead><tr><th>世帯</th><th class="num">立替えた額</th><th class="num">負担額</th><th class="num">差引</th></tr></thead>
+          <tbody id="pbody"></tbody>
+        </table>
+        <div id="transfers"></div>
       </div>
 
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
@@ -459,10 +482,10 @@ footer a{color:var(--ink-dim)}
   /* 世帯構成。大人=a / 小人=k / 幼児=t
      宿泊まわりは各自の実額、それ以外の共通費は幼児を除く8名で割る。 */
   var HOUSE = [
-    { name:'林家',   sub:'私・妻・子ども3人', a:2, k:2, t:1 },
-    { name:'ご両親', sub:'父・母',            a:2, k:0, t:0 },
-    { name:'仁',     sub:'1名',               a:1, k:0, t:0 },
-    { name:'陽',     sub:'1名',               a:1, k:0, t:0 }
+    { key:'hayashi', name:'林家',   sub:'私・妻・子ども3人', a:2, k:2, t:1 },
+    { key:'oya',     name:'ご両親', sub:'父・母',            a:2, k:0, t:0 },
+    { key:'jin',     name:'仁',     sub:'1名',               a:1, k:0, t:0 },
+    { key:'yo',      name:'陽',     sub:'1名',               a:1, k:0, t:0 }
   ];
   var HEAD = { adult:0, kid:0, tot:0 };
   HOUSE.forEach(function(h){ HEAD.adult += h.a; HEAD.kid += h.k; HEAD.tot += h.t; });
@@ -503,9 +526,54 @@ footer a{color:var(--ink-dim)}
     }
   }
 
+  /* 立替と精算。差引がプラスの世帯（受け取る側）に、マイナスの世帯が渡す。
+     受取側が複数になっても成立するよう、大きい順に突き合わせている。 */
+  function renderSettle(pools, paid){
+    var body = document.getElementById('pbody');
+    var tw   = document.getElementById('transfers');
+    if (!body || !tw) return;
+    var per = function(pool, head){ return head > 0 ? pool / head : 0; };
+    var rows = '', nets = [];
+    HOUSE.forEach(function(h){
+      var burden = per(pools.adult, HEAD.adult) * h.a
+                 + per(pools.kid,   HEAD.kid)   * h.k
+                 + per(pools.tot,   HEAD.tot)   * h.t
+                 + per(pools.adultkid, HEAD.adultkid) * (h.a + h.k)
+                 + per(pools.common,   HEAD.weight)   * (h.a + h.k * 0.5);
+      var p = paid[h.key] || 0;
+      var net = p - burden;
+      nets.push({ name: h.name, net: net });
+      rows += '<tr><td class="who">' + h.name + '</td>'
+            + '<td class="num">' + yen(p) + '</td>'
+            + '<td class="num">' + yen(burden) + '</td>'
+            + '<td class="num ' + (net >= 0 ? 'plus' : 'minus') + '">'
+            + (net >= 0 ? '+' : '−') + yen(Math.abs(net)).slice(1) + '</td></tr>';
+    });
+    body.innerHTML = rows;
+
+    var cred = nets.filter(function(n){ return n.net >  1; }).sort(function(a,b){ return b.net - a.net; })
+                   .map(function(n){ return { name:n.name, left:n.net }; });
+    var debt = nets.filter(function(n){ return n.net < -1; }).sort(function(a,b){ return a.net - b.net; })
+                   .map(function(n){ return { name:n.name, left:-n.net }; });
+    var out = '', ci = 0;
+    debt.forEach(function(d){
+      while (d.left > 1 && ci < cred.length){
+        var take = Math.min(d.left, cred[ci].left);
+        out += '<div class="tr-row"><span class="from">' + d.name + '</span>'
+             + '<span class="arw">→</span><span>' + cred[ci].name + '</span>'
+             + '<span class="amt">' + yen(take) + '</span></div>';
+        d.left -= take; cred[ci].left -= take;
+        if (cred[ci].left <= 1) ci++;
+      }
+    });
+    tw.innerHTML = out || '<div class="tr-none">精算の必要はありません。</div>';
+  }
+
   function recalc(){
     var total = 0, cash = 0;
     var pools = { adult:0, kid:0, tot:0, adultkid:0, self:0, common:0 };
+    var paid = {};
+    HOUSE.forEach(function(h){ paid[h.key] = 0; });
     inputs.forEach(function(i){
       var v = parseInt(String(i.value).replace(/[^0-9-]/g,''),10);
       if (isNaN(v)) v = 0;
@@ -513,8 +581,11 @@ footer a{color:var(--ink-dim)}
       if (i.dataset.cash === '1') cash += v;
       var a = i.dataset.alloc;
       if (a && pools.hasOwnProperty(a)) { pools[a] += v; } else { pools.common += v; }
+      var pr = i.dataset.payer;
+      if (pr && paid.hasOwnProperty(pr)) { paid[pr] += v; }
     });
     renderSplit(pools);
+    renderSettle(pools, paid);
     document.getElementById('grand').textContent = yen(total);
     document.getElementById('per').textContent = yen(total/8);   // 幼児(2歳)は割り勘から除外
     document.getElementById('peradult').textContent = yen(total/6);
