@@ -331,11 +331,11 @@ footer a{color:var(--ink-dim)}
           <tr class="grp"><td colspan="2">■ 食費</td></tr>
           <tr><td>BBQ用の肉 2,000g<span class="lock">確定</span><span class="note">牛ハラミ（並）1,000g×750＝7,500／和牛 中落ちカルビ 1,000g×610＝6,100<br>マエダ食品（伊丹市千僧3-144-1・072-771-0166）で前日購入。半冷凍にすると保冷剤がわり。⚠️ 注文時に「子どもがいるので薄めに切ってください」と伝える</span></td><td class="num"><input class="money" data-fixed="1" value="13700"></td></tr>
           <tr><td>飲み物・氷・そうめん・調味料<span class="note">各自で精算済みのため0円</span></td><td class="num"><input class="money" value="0"></td></tr>
-          <tr><td>1日目 昼食 1,200円 × 8名<span class="note">道の駅やぶ・食堂の油そば／パン屋。幼児は取り分け前提で人数に含めず。<b style="color:var(--gold)">当日その場で各自払い</b></span></td><td class="num"><input class="money" data-alloc="self" value="9600"></td></tr>
-          <tr><td>2日目 昼食 1,200円 × 8名<span class="note">道の駅やぶ。<b style="color:var(--gold)">当日その場で各自払い</b></span></td><td class="num"><input class="money" data-alloc="self" value="9600"></td></tr>
+          
+          
           <tr><td>おやつ・SA休憩<span class="note">各自で精算済みのため0円</span></td><td class="num"><input class="money" value="0"></td></tr>
 
-          <tr class="grp"><td colspan="2" style="color:var(--ink-faint);font-weight:600">※ お土産・予備費は各自負担のため、この表には含みません</td></tr>
+          <tr class="grp"><td colspan="2" style="color:var(--ink-faint);font-weight:600">※ 昼食・お土産・予備費は試算の対象外です（2日目の昼食はご両親のご厚意でご馳走になりました）</td></tr>
         </tbody>
       </table>
 
@@ -355,7 +355,7 @@ footer a{color:var(--ink-dim)}
         <div class="split-h">🧾 世帯ごとの精算</div>
         <div class="split-note">
           <b>宿泊費は各自の実額</b>（大人10,000／小人8,000／幼児1,500＋朝食1,000）。<br>
-          <b>それ以外は共通費</b>。幼児は除き、<b>小学生は0.5人分</b>として数えるので、合計<b>7人分</b>で割っています。<b>昼食は精算に含めず、当日その場で各自払い</b>です。
+          <b>それ以外は共通費</b>。幼児は除き、<b>小学生は0.5人分</b>として数えるので、合計<b>7人分</b>で割っています。
         </div>
         <table id="stable">
           <thead><tr><th>世帯</th><th class="num">宿泊まわり</th><th class="num">共通費</th><th class="num">精算額</th></tr></thead>
@@ -496,7 +496,8 @@ footer a{color:var(--ink-dim)}
     body.innerHTML = rows;
 
     var sf = document.getElementById('selfpay');
-    if (sf) {
+    if (sf && sumSelf <= 0) { sf.innerHTML = ''; }
+    else if (sf) {
       sf.innerHTML = '<div class="self-h">🍜 これとは別に、昼食は当日その場で各自払い（合計 ' + yen(sumSelf) + '）</div>'
                    + '<div class="self-row">' + selfRows + '</div>';
     }
