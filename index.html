@@ -184,7 +184,7 @@ input.money[readonly]:focus{outline:none}
 .total .big{font-size:27px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1.2}
 .total .per{font-size:12px;color:var(--ink-dim);text-align:right}
 /* 世帯ごとの精算 */
-.split{margin-top:14px;padding:14px 15px;border-radius:16px;background:rgba(167,139,250,.09);border:1px solid rgba(167,139,250,.30)}
+.split{margin-top:12px;padding:14px 15px;border-radius:16px;background:rgba(167,139,250,.09);border:1px solid rgba(167,139,250,.30)}
 .split-h{font-weight:900;font-size:14px;color:#c4b5fd;margin-bottom:4px}
 .split-note{font-size:12px;color:var(--ink-dim);margin-bottom:10px;line-height:1.7}
 .split-note b{color:var(--ink)}
@@ -202,7 +202,7 @@ input.money[readonly]:focus{outline:none}
 .self-row span{font-size:12px;color:var(--ink-dim);background:rgba(255,255,255,.05);
   border:1px solid var(--line);border-radius:8px;padding:3px 10px}
 .self-row b{color:var(--ink);font-variant-numeric:tabular-nums}
-.settle{margin-top:12px;padding:14px 15px;border-radius:16px;background:rgba(95,224,139,.09);border:1px solid rgba(95,224,139,.30)}
+.settle{margin-top:0;padding:14px 15px;border-radius:16px;background:rgba(95,224,139,.09);border:1px solid rgba(95,224,139,.30)}
 #ptable{width:100%;border-collapse:collapse;font-size:13px}
 #ptable th,#ptable td{padding:8px 6px;border-bottom:1px solid rgba(255,255,255,.10);text-align:left}
 #ptable th.num,#ptable td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -308,7 +308,43 @@ footer a{color:var(--ink-dim)}
   <!-- ============ BUDGET ============ -->
   <section id="budget">
     <div class="sec-h"><h2>収支シミュレーション</h2><span class="en">Budget</span></div>
-    <div class="card">
+    <div class="card"><div class="settle">
+        <div class="split-h" style="color:#9be7b0">🧾 立替と精算</div>
+        <table id="ptable">
+          <thead><tr><th>世帯</th><th class="num">立替えた額</th><th class="num">負担額</th><th class="num">差引</th></tr></thead>
+          <tbody id="pbody"></tbody>
+        </table>
+        <div id="transfers"></div>
+      </div>
+
+      <div class="split">
+        <div class="split-h">🧾 世帯ごとの精算</div>
+        <div class="split-note">
+          <b>宿泊費は各自の実額</b>（大人10,000／小人8,000／幼児1,500＋朝食1,000）。<br>
+          <b>それ以外は共通費</b>。幼児は除き、<b>小学生は0.5人分</b>として数えるので、合計<b>7人分</b>で割っています。
+        </div>
+        <table id="stable">
+          <thead><tr><th>世帯</th><th class="num">宿泊まわり</th><th class="num">共通費</th><th class="num">精算額</th></tr></thead>
+          <tbody id="sbody"></tbody>
+        </table>
+        <div id="selfpay"></div>
+      </div>
+
+      
+      <div class="sec-h" style="margin:22px 0 10px"><h2 style="font-size:16px">旅の総額と内訳</h2><span class="en">Breakdown</span></div>
+<div class="total">
+        <div><div class="lab">総額の目安</div><div class="big" id="grand">¥0</div></div>
+        <div class="per">1人あたり（8名・幼児除く）<br><b id="per" style="font-size:16px;color:var(--ink)">¥0</b><span id="peradult" hidden></span></div>
+      </div>
+
+      <div class="cashbox">
+        <div class="h">💴 当日 現金で必要な額</div>
+        <div style="font-size:13.5px;color:var(--ink-dim);margin-top:3px">
+          畑のおやどは<b style="color:var(--ink)">現地現金払い</b>。<b style="color:var(--ink)">美術館も現金のみ</b>です。合わせて <b id="cash" style="color:var(--green);font-size:17px">¥0</b> を、あらかじめ封筒に用意しておく。
+        </div>
+      </div>
+
+      
       <div style="font-size:12.5px;color:var(--ink-dim);margin-bottom:12px">
         金額欄は<b style="color:var(--ink)">その場で書き換えられます</b>（合計は自動再計算、この端末に保存）。<br>
         <b style="color:var(--gold)">実額が分かったら、その都度ここに打ち込んでいってください。</b>通信がなくても動きます。※保存されるのはこの端末の中だけです。
@@ -352,40 +388,6 @@ footer a{color:var(--ink-dim)}
           <tr class="grp"><td colspan="2" style="color:var(--ink-faint);font-weight:600">※ 昼食・お土産・予備費は試算の対象外です（2日目の昼食はご両親のご厚意でご馳走になりました）</td></tr>
         </tbody>
       </table>
-
-      <div class="total">
-        <div><div class="lab">総額の目安</div><div class="big" id="grand">¥0</div></div>
-        <div class="per">1人あたり（8名・幼児除く）<br><b id="per" style="font-size:16px;color:var(--ink)">¥0</b><span id="peradult" hidden></span></div>
-      </div>
-
-      <div class="cashbox">
-        <div class="h">💴 当日 現金で必要な額</div>
-        <div style="font-size:13.5px;color:var(--ink-dim);margin-top:3px">
-          畑のおやどは<b style="color:var(--ink)">現地現金払い</b>。<b style="color:var(--ink)">美術館も現金のみ</b>です。合わせて <b id="cash" style="color:var(--green);font-size:17px">¥0</b> を、あらかじめ封筒に用意しておく。
-        </div>
-      </div>
-
-      <div class="split">
-        <div class="split-h">🧾 世帯ごとの精算</div>
-        <div class="split-note">
-          <b>宿泊費は各自の実額</b>（大人10,000／小人8,000／幼児1,500＋朝食1,000）。<br>
-          <b>それ以外は共通費</b>。幼児は除き、<b>小学生は0.5人分</b>として数えるので、合計<b>7人分</b>で割っています。
-        </div>
-        <table id="stable">
-          <thead><tr><th>世帯</th><th class="num">宿泊まわり</th><th class="num">共通費</th><th class="num">精算額</th></tr></thead>
-          <tbody id="sbody"></tbody>
-        </table>
-        <div id="selfpay"></div>
-      </div>
-
-      <div class="settle">
-        <div class="split-h" style="color:#9be7b0">🧾 立替と精算</div>
-        <table id="ptable">
-          <thead><tr><th>世帯</th><th class="num">立替えた額</th><th class="num">負担額</th><th class="num">差引</th></tr></thead>
-          <tbody id="pbody"></tbody>
-        </table>
-        <div id="transfers"></div>
-      </div>
 
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
         <button class="btn" id="reset">↺ 初期値に戻す</button>
